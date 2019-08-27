@@ -1,14 +1,17 @@
 {
   "name": "@nuuf/syndicate",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "index.js",
   "author": "nuuf",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "test": "node test/test.js"
+  },
   "devDependencies": {
     "eslint": "^6.2.2"
   },
-  "scripts": {
-    "test": "node test/test.js"
+  "dependencies": {
+    "uuid": "^3.3.3"
   }
 }
