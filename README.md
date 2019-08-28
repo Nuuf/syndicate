@@ -1,4 +1,4 @@
-#Syndicate
+# Syndicate
 
 ```js
 const { 
