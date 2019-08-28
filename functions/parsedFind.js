@@ -1,4 +1,8 @@
+var checkList = require( './checkList' );
+
 module.exports = function findParsed ( list, id ) {
+
+  checkList( list );
 
   var i = 0;
 

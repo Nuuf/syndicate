@@ -1,10 +1,11 @@
 var traversePath = require( './traversePath' );
+var checkObject = require( './checkObject' );
+var checkList = require( './checkList' );
 
 module.exports = function getPath ( list, entity, attributes ) {
 
-  if ( 
-    entity.__is_syndicate_object__ !== true
-  ) throw new Error( 'SYNDICATE: NOT A SYNDICATE OBJECT' );
+  checkObject( entity );
+  checkList( list );
 
   var path = {
       index: []

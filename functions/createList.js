@@ -8,6 +8,8 @@ module.exports = function createList () {
   
   var list = [ JSON.stringify( root ) ];
 
+  list.__is_syndicate_list__ = true;
+
   return list;
 
 };

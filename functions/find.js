@@ -1,4 +1,8 @@
+var checkList = require( './checkList' );
+
 module.exports = function find ( list, id ) {
+
+  checkList( list );
 
   var i = 0, entity;
 

@@ -1,13 +1,12 @@
 var fickleDelete = require( './fickleDelete' );
+var checkObject = require( './checkObject' );
 
 module.exports = function inject ( list, entityA, entityB, after ) {
 
   var parent, index, notInList = false;
 
-  if ( 
-    entityA.__is_syndicate_object__ !== true ||
-    entityB.__is_syndicate_object__ !== true
-  ) throw new Error( 'SYNDICATE: NOT A SYNDICATE OBJECT' );
+  checkObject( entityA );
+  checkObject( entityB );
 
   if ( entityA.id === 'root' ) throw new Error( 'SYNDICATE: NOPE' );
 

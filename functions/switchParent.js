@@ -1,13 +1,15 @@
 var fickleDelete = require( './fickleDelete' );
+var checkObject = require( './checkObject' );
+var checkList = require( './checkList' );
 
 module.exports = function switchParent ( list, entity, newParent ) {
 
   var oldParent;
 
-  if ( 
-    entity.__is_syndicate_object__ !== true || 
-    newParent.__is_syndicate_object__ !== true
-  ) throw new Error( 'SYNDICATE: NOT A SYNDICATE OBJECT' );
+  checkObject( entity );
+  checkObject( newParent );
+
+  checkList( list );
 
   if ( entity.id === 'root' ) throw new Error( 'SYNDICATE: NOPE' );
 

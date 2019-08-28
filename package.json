@@ -1,5 +1,6 @@
 {
   "name": "@nuuf/syndicate",
+  "description": "A connected list of strings.",
   "version": "1.0.0",
   "main": "index.js",
   "author": "nuuf",
@@ -13,5 +14,13 @@
   },
   "dependencies": {
     "uuid": "^3.3.3"
-  }
+  },
+  "keywords": [
+    "list",
+    "string",
+    "parent",
+    "child",
+    "connect",
+    "data"
+  ]
 }

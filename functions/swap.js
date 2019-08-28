@@ -1,14 +1,16 @@
 var swapData = require( './swapData' );
 var updateChildrenIndices = require( './updateChildrenIndices' );
+var checkObject = require( './checkObject' );
+var checkList = require( './checkList' );
 
 module.exports = function swap ( list, entityA, entityB ) {
 
   var parentA, parentB;
 
-  if ( 
-    entityA.__is_syndicate_object__ !== true || 
-    entityB.__is_syndicate_object__ !== true
-  ) throw new Error( 'SYNDICATE: NOT A SYNDICATE OBJECT' );
+  checkObject( entityA );
+  checkObject( entityB );
+
+  checkList( list );
 
   if ( entityA.id === 'root' || entityB.id === 'root' ) throw new Error( 'SYNDICATE: NOPE' );
 

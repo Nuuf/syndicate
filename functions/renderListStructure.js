@@ -1,7 +1,10 @@
 var getChildrenParsed = require( './getChildrenParsed' );
 var hasParent = require( './hasParent' );
+var checkList = require( './checkList' );
 
 module.exports = function generateListStructure ( list, includeNull ) {
+
+  checkList( list );
 
   var str = '', i, entity;
 

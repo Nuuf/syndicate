@@ -1,7 +1,10 @@
 var fickleDelete = require( './fickleDelete' );
 var parsedFind = require( './parsedFind' );
+var checkList = require( './checkList' );
 
 module.exports = function crunchList ( list ) {
+
+  checkList( list );
 
   var i, j, entity, parent;
 

@@ -1,8 +1,10 @@
+var checkObject = require( './checkObject' );
+var checkList = require( './checkList' );
+
 module.exports = function getChildrenParsed ( list, entity ) {
 
-  if ( 
-    entity.__is_syndicate_object__ !== true
-  ) throw new Error( 'SYNDICATE: NOT A SYNDICATE OBJECT' );
+  checkObject( entity );
+  checkList( list );
 
   var i = 0, children = [];
 

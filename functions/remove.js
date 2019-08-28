@@ -1,12 +1,13 @@
 var fickleDelete = require( './fickleDelete' );
+var checkObject = require( './checkObject' );
+var checkList = require( './checkList' );
 
 module.exports = function remove ( list, entity ) {
 
   var i = 0, parent;
 
-  if ( 
-    entity.__is_syndicate_object__ !== true
-  ) throw new Error( 'SYNDICATE: NOT A SYNDICATE OBJECT' );
+  checkObject( entity );
+  checkList( list );
 
   if ( entity.id === 'root' ) throw new Error( 'SYNDICATE: NOPE' );
 
