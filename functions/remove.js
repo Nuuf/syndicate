@@ -2,6 +2,10 @@ var fickleDelete = require( './fickleDelete' );
 var checkObject = require( './checkObject' );
 var checkList = require( './checkList' );
 
+/**
+ * Deletes an entity from a list, along with all of its descendants
+ * 
+ */
 module.exports = function remove ( list, entity ) {
 
   var i = 0, parent;

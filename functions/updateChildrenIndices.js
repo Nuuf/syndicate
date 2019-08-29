@@ -1,3 +1,7 @@
+/**
+ * Updates the indices of the children of an entity in a list
+ * 
+ */
 module.exports = function updateChildrenIndices ( list, entity ) {
 
   var i = 0, child, childIndex;

@@ -12,7 +12,6 @@ var Syndicate = {
   getPath: require( './functions/getPath' ),
   getRootEntities: require( './functions/getRootEntities' ),
   getRootEntitiesParsed: require( './functions/getRootEntitiesParsed' ),
-  hasParent: require( './functions/hasParent' ),
   inject: require( './functions/inject' ),
   parsedFind: require( './functions/parsedFind' ),
   remove: require( './functions/remove' ),

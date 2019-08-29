@@ -1,5 +1,9 @@
 var checkList = require( './checkList' );
 
+/**
+ * Serches for an entity in a list, finding it by id
+ * 
+ */
 module.exports = function find ( list, id ) {
 
   checkList( list );

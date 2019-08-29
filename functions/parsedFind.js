@@ -1,5 +1,9 @@
 var checkList = require( './checkList' );
 
+/**
+ * Searches for an entity in a list of parsed entities, finding it by id
+ * 
+ */
 module.exports = function findParsed ( list, id ) {
 
   checkList( list );

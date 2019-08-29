@@ -3,6 +3,11 @@ var updateChildrenIndices = require( './updateChildrenIndices' );
 var checkObject = require( './checkObject' );
 var checkList = require( './checkList' );
 
+/**
+ * Swaps two entities in a list
+ * (Be careful not to swap ascendants with descendants)
+ * 
+ */
 module.exports = function swap ( list, entityA, entityB ) {
 
   var parentA, parentB;

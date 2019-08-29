@@ -2,6 +2,10 @@ var addToParent = require( './addToParent' );
 var checkObject = require( './checkObject' );
 var checkList = require( './checkList' );
 
+/**
+ * Adds an entity to a list and connects it to a parent if specified
+ * 
+ */
 module.exports = function add ( list, entity, parent ) {
 
   checkObject( entity );

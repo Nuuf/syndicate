@@ -1,3 +1,7 @@
+/**
+ * Deletes from array
+ * 
+ */
 module.exports = function popSplice ( array, index ) {
 
   var l = array.length - 1;

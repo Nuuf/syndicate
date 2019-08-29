@@ -1,5 +1,9 @@
 var create = require( './create' );
 
+/**
+ * Creates a new syndicate list
+ * 
+ */
 module.exports = function createList () {
 
   var root = create( { name: 'root' }, 'root' );

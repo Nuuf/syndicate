@@ -1,3 +1,7 @@
+/**
+ * Swaps data between two objects
+ * 
+ */
 module.exports = function swapData ( a, b, data ) {
 
   var t = a[ data ];

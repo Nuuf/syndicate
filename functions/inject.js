@@ -1,6 +1,10 @@
 var fickleDelete = require( './fickleDelete' );
 var checkObject = require( './checkObject' );
 
+/**
+ * Injects an enity into a list and assigns a parent based on a sibling
+ * 
+ */
 module.exports = function inject ( list, entityA, entityB, after ) {
 
   var parent, index, notInList = false;

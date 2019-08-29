@@ -1,5 +1,9 @@
 var uuid = require( 'uuid/v4' );
 
+/**
+ * Creates a new syndicate object
+ * 
+ */
 module.exports = function create ( data, customId ) {
 
   return {

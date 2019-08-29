@@ -1,3 +1,7 @@
+/**
+ * Deletes from array
+ * 
+ */
 module.exports = function shiftSplice ( array, index ) {
 
   if ( array.length < 1 ) return;

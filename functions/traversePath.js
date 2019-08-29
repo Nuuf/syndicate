@@ -1,3 +1,7 @@
+/**
+ * Generates values for getPath
+ * 
+ */
 module.exports = function traversePath ( list, path, entity, attributes ) {
 
   var i = 0;

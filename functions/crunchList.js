@@ -2,6 +2,10 @@ var fickleDelete = require( './fickleDelete' );
 var parsedFind = require( './parsedFind' );
 var checkList = require( './checkList' );
 
+/**
+ * Removes all null values from a list and assigns new indices to all entities
+ * 
+ */
 module.exports = function crunchList ( list ) {
 
   checkList( list );
