@@ -1,7 +1,7 @@
 {
   "name": "@nuuf/syndicate",
   "description": "A connected list of strings.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "author": "nuuf",
   "license": "MIT",
