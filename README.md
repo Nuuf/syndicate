@@ -1,5 +1,7 @@
 # Syndicate
 
+## A connected list of strings.
+
 ```js
 const { 
   version,
