@@ -1,5 +1,4 @@
 var getChildrenParsed = require( './getChildrenParsed' );
-var hasParent = require( './hasParent' );
 var checkList = require( './checkList' );
 
 /**
@@ -42,14 +41,10 @@ module.exports = function generateListStructure ( list, includeNull ) {
   for ( i = 0; i < list.length; entity = list[ ++i ] ) {
 
     if ( entity !== null ) {
-
-      if ( !hasParent( entity ) ) {
           
-        entity = JSON.parse( entity );
+      entity = JSON.parse( entity );
 
-        str = printEntity( entity, str, 0 );
-
-      }
+      str = printEntity( entity, str, 0 );
 
     } else if ( includeNull ) {
 

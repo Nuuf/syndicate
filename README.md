@@ -17,7 +17,6 @@ const {
   getPath,
   getRootEntities,
   getRootEntitiesParsed,
-  hasParent,
   inject,
   parsedFind,
   remove,
