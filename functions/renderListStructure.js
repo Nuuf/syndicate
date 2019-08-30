@@ -40,13 +40,13 @@ module.exports = function generateListStructure ( list, includeNull ) {
 
   for ( i = 0; i < list.length; entity = list[ ++i ] ) {
 
-    if ( entity !== null ) {
+    if ( i === 0 ) {
           
       entity = JSON.parse( entity );
 
       str = printEntity( entity, str, 0 );
 
-    } else if ( includeNull ) {
+    } else if ( entity === null && includeNull ) {
 
       str += 'null > index ' + i + '\n';
       

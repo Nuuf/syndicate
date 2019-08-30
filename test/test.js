@@ -4,6 +4,7 @@ const {
   addToParent,
   create,
   createList,
+  copyList,
   crunchList,
   eject,
   getAt,
@@ -41,4 +42,4 @@ console.log( getChildren( list, find( list, 'root' ) ) );
 // console.log( getPath( list, find( list, 'childA' ) ) );
 console.log( renderListStructure( list, true ) );
 crunchList( list );
-console.log( renderListStructure( list, true ) );
+console.log( renderListStructure( copyList( list ), true ) );
