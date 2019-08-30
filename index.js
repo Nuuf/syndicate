@@ -7,6 +7,7 @@ var Syndicate = {
   crunchList: require( './functions/crunchList' ),
   eject: require( './functions/eject' ),
   find: require( './functions/find' ),
+  getAt: require( './functions/getAt' ),
   getChildren: require( './functions/getChildren' ),
   getChildrenParsed: require( './functions/getChildrenParsed' ),
   getPath: require( './functions/getPath' ),

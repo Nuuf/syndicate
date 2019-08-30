@@ -6,6 +6,7 @@ const {
   createList,
   crunchList,
   eject,
+  getAt,
   find,
   getChildren,
   getChildrenParsed,
