@@ -25,18 +25,9 @@ module.exports = function inject ( list, entityA, entityB, after ) {
     parent = JSON.parse( list[ entityB.parentIndex ] );
 
     index = parent.childrenIds.indexOf( entityB.id );
-
-    if (
-      after && index + 1 > parent.childrenIds.length
-    ) parent.childrenIds.push( entityA.id );
-    else parent.childrenIds.splice( after ? index + 1 : index, 0, entityA.id );
-
+    parent.childrenIds.splice( after ? index + 1 : index, 0, entityA.id );
     index = parent.childrenIndices.indexOf( entityB.index );
-
-    if ( 
-      after && index + 1 > parent.childrenIndices.length
-    ) parent.childrenIndices.push( entityB.id );
-    else parent.childrenIndices.splice( after ? index + 1 : index, 0, entityA.index );
+    parent.childrenIndices.splice( after ? index + 1 : index, 0, entityA.index );
 
     entityA.parentIndex = parent.index;
     entityA.parentId = parent.id;
