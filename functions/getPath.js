@@ -6,7 +6,7 @@ var checkList = require( './checkList' );
  * Returns an object containing arrays of values in order entity > root
  * 
  */
-module.exports = function getPath ( list, entity, attributes ) {
+module.exports = function getPath ( list, entity, attributes, reverse ) {
 
   checkObject( entity );
   checkList( list );
@@ -25,6 +25,24 @@ module.exports = function getPath ( list, entity, attributes ) {
     
   }
 
-  return traversePath( list, path, entity, attributes );
+  path = traversePath( list, path, entity, attributes );
+
+  if ( reverse ) {
+
+    path.index.reverse();
+
+    if ( attributes ) {
+
+      for ( i = 0; i < attributes.length; ++i ) {
+  
+        path[ attributes[ i ] ].reverse();
+        
+      }
+      
+    }
+  
+  }
+
+  return path;
   
 };

@@ -4,7 +4,6 @@
 
 ```js
 const { 
-  version,
   add,
   addToParent,
   create,
@@ -28,8 +27,6 @@ const {
   update
 } = require( '../index' );
 
-console.log( `Syndicate version: ${version}` );
-
 const list = createList();
 
 add( list, create( null, 'parentA' ) );
@@ -51,7 +48,6 @@ console.log( renderListStructure( list, true ) );
 
 // Output
 /*
- Syndicate version: 1.0.0
 [
   '{"__is_syndicate_object__":true,"parentIndex":0,"parentId":"root","index":5,"id":"injected","data":{},"childrenIndices":[],"childrenIds":[]}',
   '{"__is_syndicate_object__":true,"parentIndex":0,"parentId":"root","index":3,"id":"orphaned","data":{},"childrenIndices":[],"childrenIds":[]}'

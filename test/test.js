@@ -43,3 +43,10 @@ console.log( getChildren( list, find( list, 'root' ) ) );
 console.log( renderListStructure( list, true ) );
 crunchList( list );
 console.log( renderListStructure( copyList( list ), true ) );
+
+const list2 = createList();
+
+add( list2, create( { name: 'path' }, 'first' ) );
+add( list2, create( { name: 'to' }, 'second' ), find( list2, 'first' ) );
+add( list2, create( { name: 'entity' }, 'third' ), find( list2, 'second' ) );
+console.log( getPath( list2, find( list2, 'third' ), [ 'name' ], true ) );

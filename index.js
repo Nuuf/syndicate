@@ -1,5 +1,4 @@
 var Syndicate = {
-  version: '1.0.0',
   add: require( './functions/add' ),
   addToParent: require( './functions/addToParent' ),
   create: require( './functions/create' ),
