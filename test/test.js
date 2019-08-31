@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const { 
   version,
   add,
@@ -50,3 +51,7 @@ add( list2, create( { name: 'path' }, 'first' ) );
 add( list2, create( { name: 'to' }, 'second' ), find( list2, 'first' ) );
 add( list2, create( { name: 'entity' }, 'third' ), find( list2, 'second' ) );
 console.log( getPath( list2, find( list2, 'third' ), [ 'name' ], true ) );
+
+inject( list2, create( { name: 'inject1' }, 'inject1' ), find( list2, 'third' ), true );
+inject( list2, create( { name: 'inject2' }, 'inject2' ), find( list2, 'inject1' ) );
+console.log( renderListStructure( list2, true ) );
