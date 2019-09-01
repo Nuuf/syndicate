@@ -1,7 +1,6 @@
 var swapData = require( './swapData' );
 var updateChildrenIndices = require( './updateChildrenIndices' );
 var checkObject = require( './checkObject' );
-var checkList = require( './checkList' );
 
 /**
  * Swaps two entities in a list
@@ -14,8 +13,6 @@ module.exports = function swap ( list, entityA, entityB ) {
 
   checkObject( entityA );
   checkObject( entityB );
-
-  checkList( list );
 
   if ( entityA.id === 'root' || entityB.id === 'root' ) throw new Error( 'SYNDICATE: NOPE' );
 

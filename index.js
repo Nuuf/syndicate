@@ -3,7 +3,6 @@ var Syndicate = {
   addToParent: require( './functions/addToParent' ),
   create: require( './functions/create' ),
   createList: require( './functions/createList' ),
-  copyList: require( './functions/copyList' ),
   crunchList: require( './functions/crunchList' ),
   eject: require( './functions/eject' ),
   find: require( './functions/find' ),

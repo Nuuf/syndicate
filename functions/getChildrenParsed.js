@@ -1,5 +1,4 @@
 var checkObject = require( './checkObject' );
-var checkList = require( './checkList' );
 
 /**
  * Returns an array with all the children (parsed) of an entity in a list
@@ -8,7 +7,6 @@ var checkList = require( './checkList' );
 module.exports = function getChildrenParsed ( list, entity ) {
 
   checkObject( entity );
-  checkList( list );
 
   var i = 0, children = [];
 

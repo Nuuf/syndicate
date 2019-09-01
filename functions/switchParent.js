@@ -1,6 +1,5 @@
 var fickleDelete = require( './fickleDelete' );
 var checkObject = require( './checkObject' );
-var checkList = require( './checkList' );
 
 /**
  * Assigns a new parent to an entity in a list
@@ -12,8 +11,6 @@ module.exports = function switchParent ( list, entity, newParent ) {
 
   checkObject( entity );
   checkObject( newParent );
-
-  checkList( list );
 
   if ( entity.id === 'root' ) throw new Error( 'SYNDICATE: NOPE' );
 

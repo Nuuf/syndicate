@@ -1,13 +1,10 @@
 var getChildrenParsed = require( './getChildrenParsed' );
-var checkList = require( './checkList' );
 
 /**
  * Returns a rendered string with a visualisation of the structure of a list
  * 
  */
 module.exports = function generateListStructure ( list, includeNull ) {
-
-  checkList( list );
 
   var str = '', i, entity;
 

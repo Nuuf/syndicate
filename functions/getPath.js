@@ -1,6 +1,5 @@
 var traversePath = require( './traversePath' );
 var checkObject = require( './checkObject' );
-var checkList = require( './checkList' );
 
 /**
  * Returns an object containing arrays of values in order entity > root
@@ -9,7 +8,6 @@ var checkList = require( './checkList' );
 module.exports = function getPath ( list, entity, attributes, reverse ) {
 
   checkObject( entity );
-  checkList( list );
 
   var path = {
       index: []

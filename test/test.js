@@ -1,11 +1,9 @@
 /* eslint-disable no-unused-vars */
 const { 
-  version,
   add,
   addToParent,
   create,
   createList,
-  copyList,
   crunchList,
   eject,
   getAt,
@@ -23,9 +21,6 @@ const {
   switchParent,
   update
 } = require( '../index' );
-
-console.log( `Syndicate version: ${version}` );
-
 const list = createList();
 
 add( list, create( null, 'parentA' ) );
@@ -43,7 +38,7 @@ console.log( getChildren( list, find( list, 'root' ) ) );
 // console.log( getPath( list, find( list, 'childA' ) ) );
 console.log( renderListStructure( list, true ) );
 crunchList( list );
-console.log( renderListStructure( copyList( list ), true ) );
+console.log( renderListStructure( list, true ) );
 
 const list2 = createList();
 
