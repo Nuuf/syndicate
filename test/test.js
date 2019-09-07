@@ -50,3 +50,13 @@ console.log( getPath( list2, find( list2, 'third' ), [ 'name' ], true ) );
 inject( list2, create( { name: 'inject1' }, 'inject1' ), find( list2, 'third' ), true );
 inject( list2, create( { name: 'inject2' }, 'inject2' ), find( list2, 'inject1' ) );
 console.log( renderListStructure( list2, true ) );
+
+const list3 = createList();
+
+for ( let i = 0; i < 100; ++i ) {
+
+  add( list3, create() );
+
+}
+
+console.log( getChildrenParsed( list3, JSON.parse( list3[ 0 ] ), 20, 10 ).length );
