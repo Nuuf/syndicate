@@ -1,63 +1,60 @@
-var fickleDelete = require( './fickleDelete' );
-var checkObject = require( './checkObject' );
+var fickleDelete = require('./fickleDelete');
+var checkObject = require('./checkObject');
 
 /**
  * Injects an enity into a list and assigns a parent based on a sibling
- * 
+ *
  */
-module.exports = function inject ( list, entityA, entityB, after ) {
+module.exports = function inject(list, entityA, entityB, after) {
+  var parent,
+    index,
+    notInList = false;
 
-  var parent, index, notInList = false;
+  checkObject(entityA);
+  checkObject(entityB);
 
-  checkObject( entityA );
-  checkObject( entityB );
+  if (entityA.id === 'root') throw new Error('SYNDICATE: NOPE');
 
-  if ( entityA.id === 'root' ) throw new Error( 'SYNDICATE: NOPE' );
+  if (entityA.parentId !== null && entityB.parentId !== null) {
+    parent = JSON.parse(list[entityA.parentIndex]);
+    fickleDelete(
+      parent.childrenIndices,
+      parent.childrenIndices.indexOf(entityA.index)
+    );
+    fickleDelete(parent.childrenIds, parent.childrenIds.indexOf(entityA.id));
 
-  if ( entityA.parentId !== null && entityB.parentId !== null ) {
+    list[parent.index] = JSON.stringify(parent);
 
-    parent = JSON.parse( list[ entityA.parentIndex ] );
-    fickleDelete( parent.childrenIndices, parent.childrenIndices.indexOf( entityA.index ) );
-    fickleDelete( parent.childrenIds, parent.childrenIds.indexOf( entityA.id ) );
+    parent = JSON.parse(list[entityB.parentIndex]);
 
-    list[ parent.index ] = JSON.stringify( parent );
-
-    parent = JSON.parse( list[ entityB.parentIndex ] );
-
-    index = parent.childrenIds.indexOf( entityB.id );
-    parent.childrenIds.splice( after ? index + 1 : index, 0, entityA.id );
-    index = parent.childrenIndices.indexOf( entityB.index );
-    parent.childrenIndices.splice( after ? index + 1 : index, 0, entityA.index );
+    index = parent.childrenIds.indexOf(entityB.id);
+    parent.childrenIds.splice(after ? index + 1 : index, 0, entityA.id);
+    index = parent.childrenIndices.indexOf(entityB.index);
+    parent.childrenIndices.splice(after ? index + 1 : index, 0, entityA.index);
 
     entityA.parentIndex = parent.index;
     entityA.parentId = parent.id;
 
-    list[ entityA.index ] = JSON.stringify( entityA );
-    list[ parent.index ] = JSON.stringify( parent );
-
-  } else if ( entityB.parentId !== null ) {
-
-    if ( entityA.index === -1 ) {
-
+    list[entityA.index] = JSON.stringify(entityA);
+    list[parent.index] = JSON.stringify(parent);
+  } else if (entityB.parentId !== null) {
+    if (entityA.index === -1) {
       entityA.index = list.length;
       notInList = true;
-      
     }
 
-    parent = JSON.parse( list[ entityB.parentIndex ] );
-    index = parent.childrenIds.indexOf( entityB.id );
-    parent.childrenIds.splice( after ? index + 1 : index, 0, entityA.id );
-    index = parent.childrenIndices.indexOf( entityB.index );
-    parent.childrenIndices.splice( after ? index + 1 : index, 0, entityA.index );
+    parent = JSON.parse(list[entityB.parentIndex]);
+    index = parent.childrenIds.indexOf(entityB.id);
+    parent.childrenIds.splice(after ? index + 1 : index, 0, entityA.id);
+    index = parent.childrenIndices.indexOf(entityB.index);
+    parent.childrenIndices.splice(after ? index + 1 : index, 0, entityA.index);
 
     entityA.parentIndex = parent.index;
     entityA.parentId = parent.id;
 
-    if ( notInList ) list.push( JSON.stringify( entityA ) );
-    else list[ entityA.index ] = JSON.stringify( entityA );
+    if (notInList) list.push(JSON.stringify(entityA));
+    else list[entityA.index] = JSON.stringify(entityA);
 
-    list[ parent.index ] = JSON.stringify( parent );
-
+    list[parent.index] = JSON.stringify(parent);
   }
-
 };

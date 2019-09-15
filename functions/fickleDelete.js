@@ -1,14 +1,12 @@
-var shiftDelete = require( './shiftDelete' );
-var popDelete = require( './popDelete' );
+var shiftDelete = require('./shiftDelete');
+var popDelete = require('./popDelete');
 
 /**
  * Deletes from array
- * 
+ *
  */
-module.exports = function fickleSplice ( array, index ) {
+module.exports = function fickleDelete(array, index) {
+  if (index > array.length * 0.5) return popDelete(array, index);
 
-  if ( index > array.length * 0.5 ) return popDelete( array, index );
-
-  return shiftDelete( array, index );
-  
+  return shiftDelete(array, index);
 };

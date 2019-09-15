@@ -1,24 +1,20 @@
 /**
  * Deletes from array
- * 
+ *
  */
-module.exports = function popSplice ( array, index ) {
-
+module.exports = function popDelete(array, index) {
   var l = array.length - 1;
 
-  if ( l < 1 ) return;
+  if (l < 1) return;
 
-  var returnee = array[ index ];
+  var returnee = array[index];
 
-  while ( index < l ) {
-
-    array[ index ] = array[ index + 1 ];
+  while (index < l) {
+    array[index] = array[index + 1];
     index++;
-  
   }
 
   array.pop();
 
   return returnee;
-
 };

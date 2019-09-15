@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const { 
+const {
   add,
   addToParent,
   create,
@@ -19,44 +19,47 @@ const {
   renderListStructure,
   swap,
   switchParent,
-  update
-} = require( '../index' );
+  update,
+} = require('../index');
 const list = createList();
 
-add( list, create( null, 'parentA' ) );
-add( list, create( null, 'parentB' ) );
-add( list, create( null, 'orphaned' ) );
-swap( list, find( list, 'parentA' ), find( list, 'parentB' ) );
-remove( list, find( list, 'parentB' ) );
-add( list, create( null, 'childA' ), find( list, 'parentA' ) );
-addToParent( list, find( list, 'orphaned' ), find( list, 'parentA' ) );
-eject( list, find( list, 'orphaned' ) );
-inject( list, create( null, 'injected' ), find( list, 'parentA' ), true );
-remove( list, find( list, 'parentA' ) );
+add(list, create(null, 'parentA'));
+add(list, create(null, 'parentB'));
+add(list, create(null, 'orphaned'));
+swap(list, find(list, 'parentA'), find(list, 'parentB'));
+remove(list, find(list, 'parentB'));
+add(list, create(null, 'childA'), find(list, 'parentA'));
+addToParent(list, find(list, 'orphaned'), find(list, 'parentA'));
+eject(list, find(list, 'orphaned'));
+inject(list, create(null, 'injected'), find(list, 'parentA'), true);
+remove(list, find(list, 'parentA'));
 
-console.log( getChildren( list, find( list, 'root' ) ) );
+console.log(getChildren(list, find(list, 'root')));
 // console.log( getPath( list, find( list, 'childA' ) ) );
-console.log( renderListStructure( list, true ) );
-crunchList( list );
-console.log( renderListStructure( list, true ) );
+console.log(renderListStructure(list, true));
+crunchList(list);
+console.log(renderListStructure(list, true));
 
 const list2 = createList();
 
-add( list2, create( { name: 'path' }, 'first' ) );
-add( list2, create( { name: 'to' }, 'second' ), find( list2, 'first' ) );
-add( list2, create( { name: 'entity' }, 'third' ), find( list2, 'second' ) );
-console.log( getPath( list2, find( list2, 'third' ), [ 'name' ], true ) );
+add(list2, create({ name: 'path' }, 'first'));
+add(list2, create({ name: 'to' }, 'second'), find(list2, 'first'));
+add(list2, create({ name: 'entity' }, 'third'), find(list2, 'second'));
+console.log(getPath(list2, find(list2, 'third'), ['name'], true));
 
-inject( list2, create( { name: 'inject1' }, 'inject1' ), find( list2, 'third' ), true );
-inject( list2, create( { name: 'inject2' }, 'inject2' ), find( list2, 'inject1' ) );
-console.log( renderListStructure( list2, true ) );
+inject(
+  list2,
+  create({ name: 'inject1' }, 'inject1'),
+  find(list2, 'third'),
+  true
+);
+inject(list2, create({ name: 'inject2' }, 'inject2'), find(list2, 'inject1'));
+console.log(renderListStructure(list2, true));
 
 const list3 = createList();
 
-for ( let i = 0; i < 100; ++i ) {
-
-  add( list3, create() );
-
+for (let i = 0; i < 100; ++i) {
+  add(list3, create());
 }
 
-console.log( getChildrenParsed( list3, JSON.parse( list3[ 0 ] ), 20, 10 ).length );
+console.log(getChildrenParsed(list3, JSON.parse(list3[0]), 20, 10).length);
