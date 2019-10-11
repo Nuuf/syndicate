@@ -1,6 +1,10 @@
 {
     "eslint.options": {
-      "configFile": "./.eslintrc"
+      "configFile": "./.eslintrc.js"
     },
-    "eslint.autoFixOnSave": true
+    "eslint.autoFixOnSave": true,
+    "eslint.validate": [
+      {"language": "javascript", "autoFix": true},
+      {"language": "typescript", "autoFix": true}
+    ]
   }
