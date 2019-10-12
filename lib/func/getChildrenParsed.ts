@@ -1,13 +1,21 @@
+import { Entity, ParsedEntityList } from '../types';
+import { checkObject } from './checkObject';
+
 /**
  * Returns an array with all the children (parsed) of an entity in a list
  *
  */
-export function getChildrenParsed(list, entity, limit, offset) {
+export function getChildrenParsed<T>(
+  list: Array<string>,
+  entity: Entity<T>,
+  limit?: number,
+  offset?: number
+): ParsedEntityList {
   checkObject(entity);
 
   const numChildren = entity.childrenIndices.length;
   let i = offset ? offset : 0;
-  let l = limit ? offset + limit : numChildren;
+  let l = limit ? i + limit : numChildren;
   const children = [];
 
   if (i > numChildren || i < 0) i = 0;

@@ -3,7 +3,7 @@
  *
  */
 
-export function shiftDelete(array: ArrayType, index: number): T {
+export function shiftDelete<T>(array: Array<T>, index: number): T | void {
   if (array.length < 1) return;
   const returnee = array[index];
 

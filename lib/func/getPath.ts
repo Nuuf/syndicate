@@ -1,11 +1,15 @@
+import { checkObject } from './checkObject';
+import { traversePath } from '../utility/traversePath';
+import { Entity, Path, RootList } from '../types';
+
 /**
  * Returns an object containing arrays of values in order entity > root
  *
  */
-export function getPath(list, entity, attributes, reverse) {
+export function getPath<T>(list: RootList, entity: Entity<T>, attributes: Array<string>, reverse: boolean): Path {
   checkObject(entity);
 
-  let path = {
+  let path: Path = {
       index: [],
     },
     i = 0;

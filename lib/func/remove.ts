@@ -1,8 +1,12 @@
+import { checkObject } from './checkObject';
+import { fickleDelete } from '../utility/fickleDelete';
+import { Entity, RootList } from '../types';
+
 /**
  * Deletes an entity from a list, along with all of its descendants
  *
  */
-export function remove(list, entity) {
+export function remove<T>(list: RootList, entity: Entity<T>): void {
   let i = 0,
     parent;
 

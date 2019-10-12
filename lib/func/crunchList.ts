@@ -1,11 +1,12 @@
-import { fickleDelete } from './utility/fickleDelete';
+import { fickleDelete } from '../utility/fickleDelete';
 import { findParsed } from './parsedFind';
+import { ParsedEntityList, RootList } from '../types';
 
 /**
  * Removes all null values from a list and assigns new indices to all entities
  *
  */
-export function crunchList(list: Array<string>): void {
+export function crunchList(list: RootList): void {
   let i, j, entity, parent;
 
   // Remove nulls and parse everything
@@ -14,15 +15,17 @@ export function crunchList(list: Array<string>): void {
     else list[i] = JSON.parse(list[i]);
   }
 
+  const parsedList = (list as unknown) as ParsedEntityList;
+
   // Update all indices
-  for (i = 0; i < list.length; ++i) {
-    list[i].index = i;
+  for (i = 0; i < parsedList.length; ++i) {
+    parsedList[i].index = i;
   }
 
   // Update parents and children
-  for (i = 0; i < list.length; ++i) {
-    if (list[i].childrenIds) {
-      parent = list[i];
+  for (i = 0; i < parsedList.length; ++i) {
+    if (parsedList[i].childrenIds) {
+      parent = parsedList[i];
 
       parent.childrenIndices.length = 0;
 

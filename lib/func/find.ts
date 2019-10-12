@@ -1,8 +1,10 @@
+import { Entity, RootList } from '../types';
+
 /**
  * Searches for an entity in a list, finding it by id
  *
  */
-export function find(list: Array<string>, id: string): Entity<T> | null {
+export function find<T>(list: RootList, id: string): Entity<T> | null {
   let i = 0,
     entity;
 

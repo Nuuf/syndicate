@@ -1,9 +1,14 @@
+import { checkObject } from './checkObject';
+import { swapData } from '../utility/swapData';
+import { updateChildrenIndices } from '../utility/updateChildrenIndices';
+import { Entity, RootList } from '../types';
+
 /**
  * Swaps two entities in a list
  * (Be careful not to swap ascendants with descendants)
  *
  */
-export function swap(list, entityA, entityB) {
+export function swap<T, C>(list: RootList, entityA: Entity<T>, entityB: Entity<C>): void {
   let parentA, parentB;
 
   checkObject(entityA);

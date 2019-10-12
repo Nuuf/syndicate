@@ -1,15 +1,19 @@
+import { getChildrenParsed } from './getChildrenParsed';
+import { Entity, RootList } from '../types';
+
 /**
  * Returns a rendered string with a visualisation of the structure of a list
  *
  */
-export function generateListStructure(list, includeNull) {
+export function generateListStructure(list: RootList, includeNull: boolean): string {
   let str = '',
     i,
     entity;
 
   entity = list[0];
 
-  function printEntity(entity, string, level) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function printEntity(entity: Entity<any>, string: string, level: number): string {
     string += 'id > ' + entity.id + ' : index > ' + entity.index + ' : level > ' + level + '\n';
 
     let i, j;

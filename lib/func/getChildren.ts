@@ -1,15 +1,16 @@
-const checkObject = require('./checkObject');
+import { checkObject } from './checkObject';
+import { Entity, RootList, EntityList } from '../types';
 
 /**
  * Returns an array with all the children of an entity in a list
  *
  */
-module.exports = function getChildren(list, entity, limit, offset) {
+export function getChildren<T>(list: RootList, entity: Entity<T>, limit?: number, offset?: number): EntityList {
   checkObject(entity);
 
   const numChildren = entity.childrenIndices.length;
   let i = offset ? offset : 0;
-  let l = limit ? offset + limit : numChildren;
+  let l = limit ? i + limit : numChildren;
   const children = [];
 
   if (i > numChildren || i < 0) i = 0;
@@ -20,4 +21,4 @@ module.exports = function getChildren(list, entity, limit, offset) {
   }
 
   return children;
-};
+}

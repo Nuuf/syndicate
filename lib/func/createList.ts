@@ -1,10 +1,11 @@
 import { create } from './create';
+import { RootList } from '../types';
 
 /**
  * Creates a new syndicate list
  *
  */
-export function createList(): Array<string> {
+export function createList(): RootList {
   const root = create({ name: 'root' }, 'root');
 
   root.index = 0;

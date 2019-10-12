@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "clean && tsc",
+    "build": "yarn clean && tsc",
     "lint": "eslint 'lib/**/*.ts'",
     "clean": "rimraf dist"
   },

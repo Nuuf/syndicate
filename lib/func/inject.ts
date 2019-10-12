@@ -1,8 +1,12 @@
+import { RootList, Entity } from '../types';
+import { checkObject } from './checkObject';
+import { fickleDelete } from '../utility/fickleDelete';
+
 /**
  * Injects an enity into a list and assigns a parent based on a sibling
  *
  */
-export function inject(list, entityA, entityB, after) {
+export function inject<T, C>(list: RootList, entityA: Entity<T>, entityB: Entity<C>, after: boolean): void {
   let parent,
     index,
     notInList = false;

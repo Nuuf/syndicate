@@ -1,5 +1,10 @@
 test
 .vscode
 node_modules
-.eslintrc
-prettier.config.js
+.eslintrc.js
+.prettierrc.js
+tsconfig.json
+yarn.lock
+lib
+.eslintignore
+.gitignore

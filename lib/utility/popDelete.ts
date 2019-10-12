@@ -3,7 +3,7 @@
  *
  */
 
-export function popDelete(array: ArrayType, index: number): T {
+export function popDelete<T>(array: Array<T>, index: number): T | void {
   const l = array.length - 1;
 
   if (l < 1) return;

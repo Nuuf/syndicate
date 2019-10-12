@@ -1,11 +1,12 @@
 import { checkObject } from './checkObject';
-import { fickleDelete } from './utility/fickleDelete';
+import { fickleDelete } from '../utility/fickleDelete';
+import { Entity, RootList } from '../types';
 
 /**
  * Assigns a new parent to an entity in a list
  *
  */
-export function switchParent(list: Array<string>, entity: Entity<T>, newParent: Entity<T>): void {
+export function switchParent<T, C>(list: RootList, entity: Entity<T>, newParent: Entity<C>): void {
   checkObject(entity);
   checkObject(newParent);
 

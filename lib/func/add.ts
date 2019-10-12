@@ -1,17 +1,18 @@
 import { checkObject } from './checkObject';
 import { addToParent } from './addToParent';
+import { Entity, RootList } from '../types';
 
 /**
  * Adds an entity to a list and connects it to a parent if specified
  *
  */
 
-export function add(list: Array<string>, entity: Entity<T>, parent: Entity<T>): Entity<T> {
+export function add<T, C>(list: RootList, entity: Entity<T>, parent: Entity<C>): Entity<T> {
   checkObject(entity);
 
   if (entity.parentId !== null || entity.index !== -1) {
     addToParent(list, entity, parent);
-    return;
+    return entity;
   }
 
   entity.index = list.length;
