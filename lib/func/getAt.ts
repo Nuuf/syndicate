@@ -1,9 +1,9 @@
-import { Entity, RootList } from '../types';
+import { SyndicateEntity, SyndicateRoot } from '../types';
 
 /**
- * Returns a parsed entity at the given index
+ * Returns a parsed entity by index
  *
  */
-export function getAt<T>(list: RootList, index: number): Entity<T> {
-  return JSON.parse(list[index]) as Entity<T>;
+export function getAt<T>(root: SyndicateRoot, index: number): SyndicateEntity<T> {
+  return JSON.parse(root[index] as string) as SyndicateEntity<T>;
 }

@@ -1,15 +1,15 @@
-import { ParsedEntityList, Entity } from '../types';
+import { ParsedSyndicateEntities, SyndicateEntity } from '../types';
 
 /**
- * Searches for an entity in a list of parsed entities, finding it by id
+ * Searches for an entity, finding it by id
  *
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function findParsed(list: ParsedEntityList, id: string): Entity<any> | null {
+export function parsedFind(entities: ParsedSyndicateEntities, id: string): SyndicateEntity<any> | null {
   let i = 0;
 
-  for (; i < list.length; ++i) {
-    if (list[i] !== null && list[i].id === id) return list[i];
+  for (; i < entities.length; ++i) {
+    if (entities[i] !== null && entities[i].id === id) return entities[i];
   }
 
   return null;

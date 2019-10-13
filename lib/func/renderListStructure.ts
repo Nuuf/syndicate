@@ -1,23 +1,23 @@
 import { getChildrenParsed } from './getChildrenParsed';
-import { Entity, RootList } from '../types';
+import { SyndicateEntity, SyndicateRoot } from '../types';
 
 /**
- * Returns a rendered string with a visualisation of the structure of a list
+ * Returns a rendered string with a visualisation of the structure
  *
  */
-export function generateListStructure(list: RootList, includeNull: boolean): string {
+export function renderListStructure(root: SyndicateRoot, includeNull: boolean): string {
   let str = '',
     i,
     entity;
 
-  entity = list[0];
+  entity = root[0];
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  function printEntity(entity: Entity<any>, string: string, level: number): string {
+  function printEntity(entity: SyndicateEntity<any>, string: string, level: number): string {
     string += 'id > ' + entity.id + ' : index > ' + entity.index + ' : level > ' + level + '\n';
 
     let i, j;
-    const children = getChildrenParsed(list, entity);
+    const children = getChildrenParsed(root, entity);
 
     ++level;
 
@@ -32,9 +32,9 @@ export function generateListStructure(list: RootList, includeNull: boolean): str
     return string;
   }
 
-  for (i = 0; i < list.length; entity = list[++i]) {
+  for (i = 0; i < root.length; entity = root[++i]) {
     if (i === 0) {
-      entity = JSON.parse(entity);
+      entity = JSON.parse(entity as string);
 
       str = printEntity(entity, str, 0);
     } else if (entity === null && includeNull) {

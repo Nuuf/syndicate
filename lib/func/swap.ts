@@ -1,14 +1,14 @@
 import { checkObject } from './checkObject';
 import { swapData } from '../utility/swapData';
 import { updateChildrenIndices } from '../utility/updateChildrenIndices';
-import { Entity, RootList } from '../types';
+import { SyndicateEntity, SyndicateRoot } from '../types';
 
 /**
- * Swaps two entities in a list
+ * Swaps two entities
  * (Be careful not to swap ascendants with descendants)
  *
  */
-export function swap<T, C>(list: RootList, entityA: Entity<T>, entityB: Entity<C>): void {
+export function swap<T, C>(root: SyndicateRoot, entityA: SyndicateEntity<T>, entityB: SyndicateEntity<C>): void {
   let parentA, parentB;
 
   checkObject(entityA);
@@ -20,21 +20,21 @@ export function swap<T, C>(list: RootList, entityA: Entity<T>, entityB: Entity<C
   swapData(entityA, entityB, 'parentIndex');
   swapData(entityA, entityB, 'parentId');
 
-  updateChildrenIndices(list, entityA);
-  updateChildrenIndices(list, entityB);
+  updateChildrenIndices(root, entityA);
+  updateChildrenIndices(root, entityB);
 
-  list[entityA.index] = JSON.stringify(entityA);
-  list[entityB.index] = JSON.stringify(entityB);
+  root[entityA.index] = JSON.stringify(entityA);
+  root[entityB.index] = JSON.stringify(entityB);
 
   if (entityA.parentIndex !== -1) {
-    parentA = JSON.parse(list[entityA.parentIndex]);
+    parentA = JSON.parse(root[entityA.parentIndex] as string);
     parentA.childrenIds[parentA.childrenIds.indexOf(entityB.id)] = entityA.id;
-    list[parentA.index] = JSON.stringify(parentA);
+    root[parentA.index] = JSON.stringify(parentA);
   }
 
   if (entityB.parentIndex !== -1) {
-    parentB = JSON.parse(list[entityB.parentIndex]);
+    parentB = JSON.parse(root[entityB.parentIndex] as string);
     parentB.childrenIds[parentB.childrenIds.indexOf(entityA.id)] = entityB.id;
-    list[parentB.index] = JSON.stringify(parentB);
+    root[parentB.index] = JSON.stringify(parentB);
   }
 }

@@ -1,18 +1,18 @@
 import { checkObject } from './checkObject';
 import { fickleDelete } from '../utility/fickleDelete';
-import { Entity, RootList } from '../types';
+import { SyndicateEntity, SyndicateRoot } from '../types';
 
 /**
- * Assigns a new parent to an entity in a list
+ * Assigns a new parent to an entity
  *
  */
-export function switchParent<T, C>(list: RootList, entity: Entity<T>, newParent: Entity<C>): void {
+export function adopt<T, C>(root: SyndicateRoot, entity: SyndicateEntity<T>, newParent: SyndicateEntity<C>): void {
   checkObject(entity);
   checkObject(newParent);
 
   if (entity.id === 'root') throw new Error('SYNDICATE: NOPE');
 
-  const oldParent = JSON.parse(list[entity.parentIndex]);
+  const oldParent = JSON.parse(root[entity.parentIndex] as string);
 
   if (oldParent.id === newParent.id) {
     throw new Error('SYNDICATE: NEW AND OLD ARE THE SAME');
@@ -20,13 +20,13 @@ export function switchParent<T, C>(list: RootList, entity: Entity<T>, newParent:
 
   fickleDelete(oldParent.childrenIndices, oldParent.childrenIndices.indexOf(entity.index));
   fickleDelete(oldParent.childrenIds, oldParent.childrenIds.indexOf(entity.id));
-  list[oldParent.index] = JSON.stringify(oldParent);
+  root[oldParent.index] = JSON.stringify(oldParent);
 
   newParent.childrenIndices.push(entity.index);
   newParent.childrenIds.push(entity.id);
   entity.parentIndex = newParent.index;
   entity.parentId = newParent.id;
 
-  list[newParent.index] = JSON.stringify(newParent);
-  list[entity.index] = JSON.stringify(entity);
+  root[newParent.index] = JSON.stringify(newParent);
+  root[entity.index] = JSON.stringify(entity);
 }

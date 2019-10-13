@@ -1,10 +1,10 @@
-import { Entity, RootList } from '../types';
+import { SyndicateEntity, SyndicateRoot } from '../types';
 
 /**
  * Updates the indices of the children of an entity in a list
  *
  */
-export function updateChildrenIndices<T>(list: RootList, entity: Entity<T>): void {
+export function updateChildrenIndices<T>(root: SyndicateRoot, entity: SyndicateEntity<T>): void {
   let i = 0,
     child,
     childIndex;
@@ -12,9 +12,9 @@ export function updateChildrenIndices<T>(list: RootList, entity: Entity<T>): voi
   if (entity.childrenIndices.length > 0) {
     for (; i < entity.childrenIndices.length; ++i) {
       childIndex = entity.childrenIndices[i];
-      child = JSON.parse(list[childIndex]);
+      child = JSON.parse(root[childIndex] as string);
       child.parentIndex = entity.index;
-      list[childIndex] = JSON.stringify(child);
+      root[childIndex] = JSON.stringify(child);
     }
   }
 }

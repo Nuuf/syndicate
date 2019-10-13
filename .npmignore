@@ -1,3 +1,4 @@
+__mocks__
 test
 .vscode
 node_modules
@@ -8,3 +9,4 @@ yarn.lock
 lib
 .eslintignore
 .gitignore
+declaration.d.ts

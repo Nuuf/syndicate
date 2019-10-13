@@ -1,11 +1,11 @@
-import { Entity } from '../types';
+import { SyndicateEntity } from '../types';
 
 /**
- * Throws an error if the passed object is not a syndicate object
+ * Throws an error if the passed object is not a syndicate entity
  *
  */
-export function checkObject<T>(object: Entity<T>): void {
-  if (!object || !object.__isSyndicateObject__) {
-    throw new Error('SYNDICATE: NOT A SYNDICATE OBJECT');
+export function checkObject<T>(object: SyndicateEntity<T>): void {
+  if (!object || !object.__isSyndicateEntity__) {
+    throw new Error('SYNDICATE: NOT A SYNDICATE ENTITY');
   }
 }

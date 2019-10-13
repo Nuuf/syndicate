@@ -1,12 +1,12 @@
 import { checkObject } from './checkObject';
-import { Entity, RootList } from '../types';
+import { SyndicateEntity, SyndicateRoot } from '../types';
 
 /**
- * Updates an entity in a list
+ * Updates an entity
  *
  */
-export function update<T>(list: RootList, entity: Entity<T>): void {
+export function update<T>(root: SyndicateRoot, entity: SyndicateEntity<T>): void {
   checkObject(entity);
 
-  list[entity.index] = JSON.stringify(entity);
+  root[entity.index] = JSON.stringify(entity);
 }

@@ -1,13 +1,13 @@
 import { v4 } from 'uuid';
-import { Entity } from '../types';
+import { SyndicateEntity } from '../types';
 
 /**
- * Creates a new syndicate object
+ * Creates a new syndicate entity
  *
  */
-export function create<T>(data?: T, customId?: string): Entity<T | {}> {
+export function create<T>(data?: T, customId?: string): SyndicateEntity<T | {}> {
   return {
-    __isSyndicateObject__: true,
+    __isSyndicateEntity__: true,
     parentIndex: -1,
     parentId: null,
     index: -1,

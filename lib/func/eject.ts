@@ -1,10 +1,10 @@
-import { switchParent } from './switchParent';
-import { Entity, RootList } from '../types';
+import { adopt } from './adopt';
+import { SyndicateEntity, SyndicateRoot } from '../types';
 
 /**
- * Ejects an entity from a list
+ * Ejects an entity
  *
  */
-export function eject<T>(list: RootList, entity: Entity<T>): void {
-  switchParent(list, entity, JSON.parse(list[0]));
+export function eject<T>(root: SyndicateRoot, entity: SyndicateEntity<T>): void {
+  adopt(root, entity, JSON.parse(root[0] as string));
 }

@@ -1,16 +1,16 @@
-import { Entity, ParsedEntityList } from '../types';
+import { SyndicateEntity, ParsedSyndicateEntities, SyndicateRoot } from '../types';
 import { checkObject } from './checkObject';
 
 /**
- * Returns an array with all the children (parsed) of an entity in a list
+ * Returns an array with children (parsed) of an entity
  *
  */
 export function getChildrenParsed<T>(
-  list: Array<string>,
-  entity: Entity<T>,
+  root: SyndicateRoot,
+  entity: SyndicateEntity<T>,
   limit?: number,
   offset?: number
-): ParsedEntityList {
+): ParsedSyndicateEntities {
   checkObject(entity);
 
   const numChildren = entity.childrenIndices.length;
@@ -22,7 +22,7 @@ export function getChildrenParsed<T>(
   if (l > numChildren) l = numChildren;
 
   for (; i < l; ++i) {
-    children.push(JSON.parse(list[entity.childrenIndices[i]]));
+    children.push(JSON.parse(root[entity.childrenIndices[i]] as string));
   }
 
   return children;

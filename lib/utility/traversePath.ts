@@ -1,10 +1,19 @@
-import { Entity, Path, RootList } from '../types';
+import { SyndicateEntity, SyndicatePath, SyndicateRoot } from '../types';
 
 /**
  * Generates values for getPath
  *
  */
-export function traversePath<T>(list: RootList, path: Path, entity: Entity<T>, attributes: Array<string>): Path {
+export function traversePath<T>(
+  root: SyndicateRoot,
+  path: SyndicatePath,
+  entity: SyndicateEntity<T>,
+  attributes: Array<string>
+): SyndicatePath {
+  if (entity.index === 0) {
+    return path;
+  }
+
   let i = 0;
 
   ((path.index as unknown) as Array<number>).push(entity.index);
@@ -17,9 +26,5 @@ export function traversePath<T>(list: RootList, path: Path, entity: Entity<T>, a
     }
   }
 
-  if (entity.parentIndex !== -1) {
-    return traversePath(list, path, JSON.parse(list[entity.parentIndex]), attributes);
-  }
-
-  return path;
+  return traversePath(root, path, JSON.parse(root[entity.parentIndex] as string), attributes);
 }

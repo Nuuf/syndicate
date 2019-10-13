@@ -1,5 +1,5 @@
-export type Entity<T> = {
-  __isSyndicateObject__: boolean;
+export type SyndicateEntity<T> = {
+  __isSyndicateEntity__: boolean;
   parentIndex: number;
   parentId: string | null;
   index: number;
@@ -9,12 +9,12 @@ export type Entity<T> = {
   childrenIds: Array<string>;
 };
 
-export type RootList = Array<string | null>;
-export type EntityList = Array<string>;
+export type SyndicateRoot = Array<string | null>;
+export type SyndicateEntities = Array<string>;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type ParsedEntityList = Array<Entity<any>>;
+export type ParsedSyndicateEntities = Array<SyndicateEntity<any>>;
 
-export type Path = {
+export type SyndicatePath = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: Array<any>;
 };

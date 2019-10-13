@@ -1,15 +1,20 @@
 import { checkObject } from './checkObject';
 import { traversePath } from '../utility/traversePath';
-import { Entity, Path, RootList } from '../types';
+import { SyndicateEntity, SyndicatePath, SyndicateRoot } from '../types';
 
 /**
  * Returns an object containing arrays of values in order entity > root
  *
  */
-export function getPath<T>(list: RootList, entity: Entity<T>, attributes: Array<string>, reverse: boolean): Path {
+export function getPath<T>(
+  root: SyndicateRoot,
+  entity: SyndicateEntity<T>,
+  attributes: Array<string>,
+  reverse: boolean
+): SyndicatePath {
   checkObject(entity);
 
-  let path: Path = {
+  let path: SyndicatePath = {
       index: [],
     },
     i = 0;
@@ -20,7 +25,7 @@ export function getPath<T>(list: RootList, entity: Entity<T>, attributes: Array<
     }
   }
 
-  path = traversePath(list, path, entity, attributes);
+  path = traversePath(root, path, entity, attributes);
 
   if (reverse) {
     path.index.reverse();

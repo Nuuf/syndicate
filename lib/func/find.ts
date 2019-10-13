@@ -1,16 +1,16 @@
-import { Entity, RootList } from '../types';
+import { SyndicateEntity, SyndicateRoot, SyndicateEntities } from '../types';
 
 /**
- * Searches for an entity in a list, finding it by id
+ * Returns a parsed entity by id
  *
  */
-export function find<T>(list: RootList, id: string): Entity<T> | null {
+export function find<T>(entities: SyndicateRoot | SyndicateEntities, id: string): SyndicateEntity<T> | null {
   let i = 0,
     entity;
 
-  for (; i < list.length; ++i) {
-    if (list[i] !== null) {
-      entity = JSON.parse(list[i]) as Entity<T>;
+  for (; i < entities.length; ++i) {
+    if (entities[i] !== null) {
+      entity = JSON.parse(entities[i] as string) as SyndicateEntity<T>;
       if (entity.id === id) return entity;
     }
   }

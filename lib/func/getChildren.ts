@@ -1,11 +1,16 @@
 import { checkObject } from './checkObject';
-import { Entity, RootList, EntityList } from '../types';
+import { SyndicateEntity, SyndicateRoot, SyndicateEntities } from '../types';
 
 /**
- * Returns an array with all the children of an entity in a list
+ * Returns an array with children of an entity
  *
  */
-export function getChildren<T>(list: RootList, entity: Entity<T>, limit?: number, offset?: number): EntityList {
+export function getChildren<T>(
+  root: SyndicateRoot,
+  entity: SyndicateEntity<T>,
+  limit?: number,
+  offset?: number
+): SyndicateEntities {
   checkObject(entity);
 
   const numChildren = entity.childrenIndices.length;
@@ -17,8 +22,8 @@ export function getChildren<T>(list: RootList, entity: Entity<T>, limit?: number
   if (l > numChildren) l = numChildren;
 
   for (; i < l; ++i) {
-    children.push(list[entity.childrenIndices[i]]);
+    children.push(root[entity.childrenIndices[i]]);
   }
 
-  return children;
+  return children as SyndicateEntities;
 }

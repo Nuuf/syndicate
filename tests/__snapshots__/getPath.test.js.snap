@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gets the path of index and one or more attributes found in data 1`] = `
+"[
+  \\"path\\",
+  \\"to\\",
+  \\"this\\",
+  \\"little\\",
+  \\"data\\"
+]"
+`;
