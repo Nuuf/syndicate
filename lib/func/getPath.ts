@@ -9,8 +9,8 @@ import { SyndicateEntity, SyndicatePath, SyndicateRoot } from '../types';
 export function getPath<T>(
   root: SyndicateRoot,
   entity: SyndicateEntity<T>,
-  attributes: Array<string>,
-  reverse: boolean
+  attributes?: Array<string>,
+  reverse?: boolean
 ): SyndicatePath {
   checkObject(entity);
 

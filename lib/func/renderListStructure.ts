@@ -5,7 +5,7 @@ import { SyndicateEntity, SyndicateRoot } from '../types';
  * Returns a rendered string with a visualisation of the structure
  *
  */
-export function renderListStructure(root: SyndicateRoot, includeNull: boolean): string {
+export function renderListStructure(root: SyndicateRoot, includeNull?: boolean): string {
   let str = '',
     i,
     entity;

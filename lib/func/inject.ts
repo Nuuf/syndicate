@@ -10,7 +10,7 @@ export function inject<T, C>(
   root: SyndicateRoot,
   entityA: SyndicateEntity<T>,
   entityB: SyndicateEntity<C>,
-  after: boolean
+  after?: boolean
 ): void {
   let parent,
     index,

@@ -10,19 +10,22 @@ import { SyndicateEntity, SyndicateRoot } from '../types';
 export function add<T, C>(
   root: SyndicateRoot,
   entity: SyndicateEntity<T>,
-  parent: SyndicateEntity<C>
+  parent?: SyndicateEntity<C>
 ): SyndicateEntity<T> {
   checkObject(entity);
 
   if (entity.parentId !== null || entity.index !== -1) {
-    addToParent(root, entity, parent);
-    return entity;
+    if (parent) {
+      addToParent(root, entity, parent);
+      return entity;
+    }
   }
 
   entity.index = root.length;
 
   if (parent == null) {
-    parent = JSON.parse(root[0] as string);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    parent = JSON.parse(root[0] as string) as SyndicateEntity<any>;
   }
 
   entity.parentId = parent.id;

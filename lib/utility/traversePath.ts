@@ -8,7 +8,7 @@ export function traversePath<T>(
   root: SyndicateRoot,
   path: SyndicatePath,
   entity: SyndicateEntity<T>,
-  attributes: Array<string>
+  attributes?: Array<string>
 ): SyndicatePath {
   if (entity.index === 0) {
     return path;

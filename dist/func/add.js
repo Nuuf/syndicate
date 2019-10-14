@@ -9,11 +9,14 @@ var addToParent_1 = require("./addToParent");
 function add(root, entity, parent) {
     checkObject_1.checkObject(entity);
     if (entity.parentId !== null || entity.index !== -1) {
-        addToParent_1.addToParent(root, entity, parent);
-        return entity;
+        if (parent) {
+            addToParent_1.addToParent(root, entity, parent);
+            return entity;
+        }
     }
     entity.index = root.length;
     if (parent == null) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         parent = JSON.parse(root[0]);
     }
     entity.parentId = parent.id;
