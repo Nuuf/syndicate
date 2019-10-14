@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a structure 1`] = `
+"id > root : index > 0 : level > 0
+	id > B : index > 2 : level > 1
+	id > D : index > 4 : level > 1
+	id > E : index > 5 : level > 1
+null > index 1
+null > index 3
+null > index 6
+"
+`;
