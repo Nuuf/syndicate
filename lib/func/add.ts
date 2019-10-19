@@ -1,22 +1,23 @@
 import { checkObject } from './checkObject';
-import { addToParent } from './addToParent';
+import { adopt } from './adopt';
 import { SyndicateEntity, SyndicateRoot } from '../types';
+import { Arrange } from '../const';
 
 /**
  * Adds an entity and connects it to a parent if specified
  *
  */
-
 export function add<T, C>(
   root: SyndicateRoot,
   entity: SyndicateEntity<T>,
-  parent?: SyndicateEntity<C>
+  parent?: SyndicateEntity<C>,
+  arrange?: Arrange.START | Arrange.END
 ): SyndicateEntity<T> {
   checkObject(entity);
 
   if (entity.parentId !== null || entity.index !== -1) {
     if (parent) {
-      addToParent(root, entity, parent);
+      adopt(root, entity, parent, arrange);
       return entity;
     }
   }

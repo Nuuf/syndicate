@@ -1,12 +1,18 @@
 import { checkObject } from './checkObject';
 import { fickleDelete } from '../utility/fickleDelete';
 import { SyndicateEntity, SyndicateRoot } from '../types';
+import { Arrange } from '../const';
 
 /**
  * Assigns a new parent to an entity
  *
  */
-export function adopt<T, C>(root: SyndicateRoot, entity: SyndicateEntity<T>, newParent: SyndicateEntity<C>): void {
+export function adopt<T, C>(
+  root: SyndicateRoot,
+  entity: SyndicateEntity<T>,
+  newParent: SyndicateEntity<C>,
+  arrange?: Arrange.START | Arrange.END
+): void {
   checkObject(entity);
   checkObject(newParent);
 
@@ -22,8 +28,13 @@ export function adopt<T, C>(root: SyndicateRoot, entity: SyndicateEntity<T>, new
   fickleDelete(oldParent.childrenIds, oldParent.childrenIds.indexOf(entity.id));
   root[oldParent.index] = JSON.stringify(oldParent);
 
-  newParent.childrenIndices.push(entity.index);
-  newParent.childrenIds.push(entity.id);
+  if (arrange === Arrange.START) {
+    newParent.childrenIndices.unshift(entity.index);
+    newParent.childrenIds.unshift(entity.id);
+  } else {
+    newParent.childrenIndices.push(entity.index);
+    newParent.childrenIds.push(entity.id);
+  }
   entity.parentIndex = newParent.index;
   entity.parentId = newParent.id;
 

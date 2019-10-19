@@ -1,16 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var checkObject_1 = require("./checkObject");
-var addToParent_1 = require("./addToParent");
+var adopt_1 = require("./adopt");
 /**
  * Adds an entity and connects it to a parent if specified
  *
  */
-function add(root, entity, parent) {
+function add(root, entity, parent, arrange) {
     checkObject_1.checkObject(entity);
     if (entity.parentId !== null || entity.index !== -1) {
         if (parent) {
-            addToParent_1.addToParent(root, entity, parent);
+            adopt_1.adopt(root, entity, parent, arrange);
             return entity;
         }
     }

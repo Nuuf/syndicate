@@ -1,6 +1,7 @@
 import { SyndicateRoot, SyndicateEntity } from '../types';
 import { checkObject } from './checkObject';
 import { fickleDelete } from '../utility/fickleDelete';
+import { Arrange } from '../const';
 
 /**
  * Injects an enity and assigns a parent based on a sibling
@@ -10,16 +11,37 @@ export function inject<T, C>(
   root: SyndicateRoot,
   entityA: SyndicateEntity<T>,
   entityB: SyndicateEntity<C>,
-  after?: boolean
+  arrange?: Arrange
 ): void {
   let parent,
-    index,
     notInList = false;
 
   checkObject(entityA);
   checkObject(entityB);
 
   if (entityA.id === 'root') throw new Error('SYNDICATE: NOPE');
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function insertIdAndIndex(parent: SyndicateEntity<any>): void {
+    switch (arrange) {
+      case Arrange.START:
+        parent.childrenIds.unshift(entityA.id);
+        parent.childrenIndices.unshift(entityA.index);
+        return;
+      case Arrange.END:
+        parent.childrenIds.push(entityA.id);
+        parent.childrenIndices.push(entityA.index);
+        return;
+      case Arrange.AFTER:
+        parent.childrenIds.splice(parent.childrenIds.indexOf(entityB.id) + 1, 0, entityA.id);
+        parent.childrenIndices.splice(parent.childrenIndices.indexOf(entityB.index) + 1, 0, entityA.index);
+        return;
+      default:
+        parent.childrenIds.splice(parent.childrenIds.indexOf(entityB.id), 0, entityA.id);
+        parent.childrenIndices.splice(parent.childrenIndices.indexOf(entityB.index), 0, entityA.index);
+        return;
+    }
+  }
 
   if (entityA.parentId !== null && entityB.parentId !== null) {
     parent = JSON.parse(root[entityA.parentIndex] as string);
@@ -30,10 +52,7 @@ export function inject<T, C>(
 
     parent = JSON.parse(root[entityB.parentIndex] as string);
 
-    index = parent.childrenIds.indexOf(entityB.id);
-    parent.childrenIds.splice(after ? index + 1 : index, 0, entityA.id);
-    index = parent.childrenIndices.indexOf(entityB.index);
-    parent.childrenIndices.splice(after ? index + 1 : index, 0, entityA.index);
+    insertIdAndIndex(parent);
 
     entityA.parentIndex = parent.index;
     entityA.parentId = parent.id;
@@ -47,10 +66,8 @@ export function inject<T, C>(
     }
 
     parent = JSON.parse(root[entityB.parentIndex] as string);
-    index = parent.childrenIds.indexOf(entityB.id);
-    parent.childrenIds.splice(after ? index + 1 : index, 0, entityA.id);
-    index = parent.childrenIndices.indexOf(entityB.index);
-    parent.childrenIndices.splice(after ? index + 1 : index, 0, entityA.index);
+
+    insertIdAndIndex(parent);
 
     entityA.parentIndex = parent.index;
     entityA.parentId = parent.id;

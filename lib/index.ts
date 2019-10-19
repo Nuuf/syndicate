@@ -1,7 +1,10 @@
+import { Arrange } from './const';
+const { START, END, BEFORE, AFTER } = Arrange;
+
 export { add } from './func/add';
-export { addToParent } from './func/addToParent';
 export { adopt } from './func/adopt';
 export { checkObject } from './func/checkObject';
+export { clone } from './func/clone';
 export { create } from './func/create';
 export { createRoot } from './func/createRoot';
 export { crunch } from './func/crunch';
@@ -19,3 +22,4 @@ export { remove } from './func/remove';
 export { renderListStructure } from './func/renderListStructure';
 export { swap } from './func/swap';
 export { update } from './func/update';
+export { START, END, BEFORE, AFTER };
