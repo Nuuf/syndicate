@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`clones an entity 1`] = `
+"[
+  \\"{\\\\\\"__isSyndicateEntity__\\\\\\":true,\\\\\\"parentIndex\\\\\\":-1,\\\\\\"parentId\\\\\\":null,\\\\\\"index\\\\\\":0,\\\\\\"id\\\\\\":\\\\\\"root\\\\\\",\\\\\\"data\\\\\\":{\\\\\\"name\\\\\\":\\\\\\"root\\\\\\"},\\\\\\"childrenIndices\\\\\\":[1],\\\\\\"childrenIds\\\\\\":[\\\\\\"parent\\\\\\"]}\\",
+  \\"{\\\\\\"__isSyndicateEntity__\\\\\\":true,\\\\\\"parentIndex\\\\\\":0,\\\\\\"parentId\\\\\\":\\\\\\"root\\\\\\",\\\\\\"index\\\\\\":1,\\\\\\"id\\\\\\":\\\\\\"parent\\\\\\",\\\\\\"data\\\\\\":{},\\\\\\"childrenIndices\\\\\\":[2,3,4,5,6,7],\\\\\\"childrenIds\\\\\\":[\\\\\\"child\\\\\\",\\\\\\"1\\\\\\",\\\\\\"2\\\\\\",\\\\\\"3\\\\\\",\\\\\\"4\\\\\\",\\\\\\"5\\\\\\"]}\\",
+  \\"{\\\\\\"__isSyndicateEntity__\\\\\\":true,\\\\\\"parentIndex\\\\\\":1,\\\\\\"parentId\\\\\\":\\\\\\"parent\\\\\\",\\\\\\"index\\\\\\":2,\\\\\\"id\\\\\\":\\\\\\"child\\\\\\",\\\\\\"data\\\\\\":{\\\\\\"someData\\\\\\":\\\\\\"hello world\\\\\\"},\\\\\\"childrenIndices\\\\\\":[],\\\\\\"childrenIds\\\\\\":[]}\\",
+  \\"{\\\\\\"__isSyndicateEntity__\\\\\\":true,\\\\\\"parentIndex\\\\\\":1,\\\\\\"parentId\\\\\\":\\\\\\"parent\\\\\\",\\\\\\"index\\\\\\":3,\\\\\\"id\\\\\\":\\\\\\"1\\\\\\",\\\\\\"data\\\\\\":{\\\\\\"someData\\\\\\":\\\\\\"hello world\\\\\\"},\\\\\\"childrenIndices\\\\\\":[],\\\\\\"childrenIds\\\\\\":[]}\\",
+  \\"{\\\\\\"__isSyndicateEntity__\\\\\\":true,\\\\\\"parentIndex\\\\\\":1,\\\\\\"parentId\\\\\\":\\\\\\"parent\\\\\\",\\\\\\"index\\\\\\":4,\\\\\\"id\\\\\\":\\\\\\"2\\\\\\",\\\\\\"data\\\\\\":{\\\\\\"someData\\\\\\":\\\\\\"hello world\\\\\\"},\\\\\\"childrenIndices\\\\\\":[],\\\\\\"childrenIds\\\\\\":[]}\\",
+  \\"{\\\\\\"__isSyndicateEntity__\\\\\\":true,\\\\\\"parentIndex\\\\\\":1,\\\\\\"parentId\\\\\\":\\\\\\"parent\\\\\\",\\\\\\"index\\\\\\":5,\\\\\\"id\\\\\\":\\\\\\"3\\\\\\",\\\\\\"data\\\\\\":{\\\\\\"someData\\\\\\":\\\\\\"hello world\\\\\\"},\\\\\\"childrenIndices\\\\\\":[],\\\\\\"childrenIds\\\\\\":[]}\\",
+  \\"{\\\\\\"__isSyndicateEntity__\\\\\\":true,\\\\\\"parentIndex\\\\\\":1,\\\\\\"parentId\\\\\\":\\\\\\"parent\\\\\\",\\\\\\"index\\\\\\":6,\\\\\\"id\\\\\\":\\\\\\"4\\\\\\",\\\\\\"data\\\\\\":{\\\\\\"someData\\\\\\":\\\\\\"hello world\\\\\\"},\\\\\\"childrenIndices\\\\\\":[],\\\\\\"childrenIds\\\\\\":[]}\\",
+  \\"{\\\\\\"__isSyndicateEntity__\\\\\\":true,\\\\\\"parentIndex\\\\\\":1,\\\\\\"parentId\\\\\\":\\\\\\"parent\\\\\\",\\\\\\"index\\\\\\":7,\\\\\\"id\\\\\\":\\\\\\"5\\\\\\",\\\\\\"data\\\\\\":{\\\\\\"someData\\\\\\":\\\\\\"hello world\\\\\\"},\\\\\\"childrenIndices\\\\\\":[],\\\\\\"childrenIds\\\\\\":[]}\\"
+]"
+`;
