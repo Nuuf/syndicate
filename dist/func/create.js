@@ -12,7 +12,7 @@ function create(data, customId) {
         parentId: null,
         index: -1,
         id: customId == null ? uuid_1.v4() : customId,
-        data: data == null ? {} : data,
+        data: data,
         childrenIndices: [],
         childrenIds: [],
     };

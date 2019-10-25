@@ -2,6 +2,6 @@
 const syndicate = require('../dist');
 
 test('creates an entity', () => {
-  const entity = syndicate.create();
+  const entity = syndicate.create({});
   expect(JSON.stringify(entity, null, 2)).toMatchSnapshot();
 });

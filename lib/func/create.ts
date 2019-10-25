@@ -5,14 +5,14 @@ import { SyndicateEntity } from '../types';
  * Creates a new syndicate entity
  *
  */
-export function create<T>(data?: T, customId?: string): SyndicateEntity<T | {}> {
+export function create<T>(data: T, customId?: string): SyndicateEntity<T> {
   return {
     __isSyndicateEntity__: true,
     parentIndex: -1,
     parentId: null,
     index: -1,
     id: customId == null ? v4() : customId,
-    data: data == null ? {} : data,
+    data: data,
     childrenIndices: [],
     childrenIds: [],
   };
