@@ -1,11 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * Swaps data between two objects
  *
  */
-export function swapData<T, C>(a: Record<string, T>, b: Record<string, C>, data: string): void {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const t = a[data] as any;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  a[data] = b[data] as any;
-  b[data] = t;
+export function swapData(a: Record<string, any>, b: Record<string, any>, key: string): void {
+  const t = a[key] as any;
+  a[key] = b[key] as any;
+  b[key] = t;
 }
