@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`swaps two entities 1`] = `
-"[
-  \\"{\\\\\\"__isSyndicateEntity__\\\\\\":true,\\\\\\"parentIndex\\\\\\":-1,\\\\\\"parentId\\\\\\":null,\\\\\\"index\\\\\\":0,\\\\\\"id\\\\\\":\\\\\\"root\\\\\\",\\\\\\"data\\\\\\":{\\\\\\"name\\\\\\":\\\\\\"root\\\\\\"},\\\\\\"childrenIndices\\\\\\":[1,2],\\\\\\"childrenIds\\\\\\":[\\\\\\"B\\\\\\",\\\\\\"A\\\\\\"]}\\",
-  \\"{\\\\\\"__isSyndicateEntity__\\\\\\":true,\\\\\\"parentIndex\\\\\\":0,\\\\\\"parentId\\\\\\":\\\\\\"root\\\\\\",\\\\\\"index\\\\\\":1,\\\\\\"id\\\\\\":\\\\\\"B\\\\\\",\\\\\\"data\\\\\\":{},\\\\\\"childrenIndices\\\\\\":[],\\\\\\"childrenIds\\\\\\":[]}\\",
-  \\"{\\\\\\"__isSyndicateEntity__\\\\\\":true,\\\\\\"parentIndex\\\\\\":0,\\\\\\"parentId\\\\\\":\\\\\\"root\\\\\\",\\\\\\"index\\\\\\":2,\\\\\\"id\\\\\\":\\\\\\"A\\\\\\",\\\\\\"data\\\\\\":{},\\\\\\"childrenIndices\\\\\\":[],\\\\\\"childrenIds\\\\\\":[]}\\"
-]"
-`;

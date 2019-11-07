@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`create a syndicate root 1`] = `
-"[
-  \\"{\\\\\\"__isSyndicateEntity__\\\\\\":true,\\\\\\"parentIndex\\\\\\":-1,\\\\\\"parentId\\\\\\":null,\\\\\\"index\\\\\\":0,\\\\\\"id\\\\\\":\\\\\\"root\\\\\\",\\\\\\"data\\\\\\":{\\\\\\"name\\\\\\":\\\\\\"root\\\\\\"},\\\\\\"childrenIndices\\\\\\":[],\\\\\\"childrenIds\\\\\\":[]}\\"
-]"
-`;

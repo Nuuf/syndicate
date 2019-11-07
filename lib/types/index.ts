@@ -1,20 +1,25 @@
-export type SyndicateEntity<T> = {
-  __isSyndicateEntity__: boolean;
-  parentIndex: number;
-  parentId: string | null;
-  index: number;
-  id: string;
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+export type SyndicateRootList = {
+  [index: string]: string;
+};
+
+export type SyndicateRootEntity = {
+  configEntities: SyndicateRootList;
+  dataEntities: SyndicateRootList;
+};
+
+export type SyndicateConfigEntity = {
+  key: string;
+  childKeys: Array<string>;
+  parentKey: string | null;
+};
+
+export type SyndicateCompositeEntity<T> = {
+  config: SyndicateConfigEntity;
   data: T;
-  childrenIndices: Array<number>;
-  childrenIds: Array<string>;
 };
 
-export type SyndicateRoot = Array<string | null>;
-export type SyndicateEntities = Array<string>;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type ParsedSyndicateEntities = Array<SyndicateEntity<any>>;
-
-export type SyndicatePath = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: Array<any>;
-};
+export type SyndicateCompositeEntities<T> = Array<SyndicateCompositeEntity<T>>;
+export type SyndicateConfigEntities = Array<SyndicateConfigEntity>;
+export type SyndicateDataEntities<T> = Array<T>;

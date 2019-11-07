@@ -1,8 +1,3 @@
-/**
- * Deletes from array
- *
- */
-
 export function shiftDelete<T>(array: Array<T>, index: number): T | void {
   if (array.length < 1) return;
   const returnee = array[index];

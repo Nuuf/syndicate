@@ -1,16 +1,19 @@
-export declare type SyndicateEntity<T> = {
-    __isSyndicateEntity__: boolean;
-    parentIndex: number;
-    parentId: string | null;
-    index: number;
-    id: string;
+export declare type SyndicateRootList = {
+    [index: string]: string;
+};
+export declare type SyndicateRootEntity = {
+    configEntities: SyndicateRootList;
+    dataEntities: SyndicateRootList;
+};
+export declare type SyndicateConfigEntity = {
+    key: string;
+    childKeys: Array<string>;
+    parentKey: string | null;
+};
+export declare type SyndicateCompositeEntity<T> = {
+    config: SyndicateConfigEntity;
     data: T;
-    childrenIndices: Array<number>;
-    childrenIds: Array<string>;
 };
-export declare type SyndicateRoot = Array<string | null>;
-export declare type SyndicateEntities = Array<string>;
-export declare type ParsedSyndicateEntities = Array<SyndicateEntity<any>>;
-export declare type SyndicatePath = {
-    [key: string]: Array<any>;
-};
+export declare type SyndicateCompositeEntities<T> = Array<SyndicateCompositeEntity<T>>;
+export declare type SyndicateConfigEntities = Array<SyndicateConfigEntity>;
+export declare type SyndicateDataEntities<T> = Array<T>;

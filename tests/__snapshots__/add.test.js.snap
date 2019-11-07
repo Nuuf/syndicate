@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`adds an entity 1`] = `
-"[
-  \\"{\\\\\\"__isSyndicateEntity__\\\\\\":true,\\\\\\"parentIndex\\\\\\":-1,\\\\\\"parentId\\\\\\":null,\\\\\\"index\\\\\\":0,\\\\\\"id\\\\\\":\\\\\\"root\\\\\\",\\\\\\"data\\\\\\":{\\\\\\"name\\\\\\":\\\\\\"root\\\\\\"},\\\\\\"childrenIndices\\\\\\":[1],\\\\\\"childrenIds\\\\\\":[\\\\\\"1\\\\\\"]}\\",
-  \\"{\\\\\\"__isSyndicateEntity__\\\\\\":true,\\\\\\"parentIndex\\\\\\":0,\\\\\\"parentId\\\\\\":\\\\\\"root\\\\\\",\\\\\\"index\\\\\\":1,\\\\\\"id\\\\\\":\\\\\\"1\\\\\\",\\\\\\"data\\\\\\":{},\\\\\\"childrenIndices\\\\\\":[],\\\\\\"childrenIds\\\\\\":[]}\\"
-]"
-`;

@@ -17,8 +17,8 @@ root = {
     }
     data: {
         'root': null
-        'id-1': {}
-        'id-2': {}
+        'id-1': {any}
+        'id-2': {any}
     }
 }
 

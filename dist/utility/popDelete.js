@@ -1,8 +1,4 @@
 "use strict";
-/**
- * Deletes from array
- *
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 function popDelete(array, index) {
     var l = array.length - 1;

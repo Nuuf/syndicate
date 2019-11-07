@@ -1,8 +1,4 @@
 "use strict";
-/**
- * Deletes from array
- *
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 function shiftDelete(array, index) {
     if (array.length < 1)
