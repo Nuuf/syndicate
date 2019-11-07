@@ -1,4 +1,4 @@
-export function popDelete<T>(array: Array<T>, index: number): T | void {
+export default function popDelete<T>(array: Array<T>, index: number): T | void {
   const l = array.length - 1;
 
   if (l < 1) return;

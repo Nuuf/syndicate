@@ -1,20 +1,43 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SyndicateRootEntity, SyndicateConfigEntity, SyndicateDataEntities } from '../../types';
-import getData from './getData';
+import { getData } from '.';
 
 export default function getChildrenDataEntities<T>(
   root: SyndicateRootEntity,
   entity: SyndicateConfigEntity,
+  noParse?: false,
   limit?: number,
   offset?: number
-): SyndicateDataEntities<T> {
+): SyndicateDataEntities<T>;
+export default function getChildrenDataEntities(
+  root: SyndicateRootEntity,
+  entity: SyndicateConfigEntity,
+  noParse?: true,
+  limit?: number,
+  offset?: number
+): Array<string>;
+export default function getChildrenDataEntities<T>(
+  root: SyndicateRootEntity,
+  entity: SyndicateConfigEntity,
+  noParse?: boolean,
+  limit?: number,
+  offset?: number
+): any {
   const numChildren = entity.childKeys.length;
   let i = offset ? offset : 0;
   let l = limit ? i + limit : numChildren;
   const children = [];
   if (i > numChildren || i < 0) i = 0;
   if (l > numChildren) l = numChildren;
-  for (; i < l; ++i) {
-    children.push(getData<T>(root, entity.childKeys[i]));
+  if (noParse) {
+    for (; i < l; ++i) {
+      children.push(getData(root, entity.childKeys[i], true));
+    }
+  } else {
+    for (; i < l; ++i) {
+      children.push(getData<T>(root, entity.childKeys[i], false));
+    }
   }
+
   return children;
 }

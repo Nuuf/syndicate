@@ -23,3 +23,9 @@ export type SyndicateCompositeEntity<T> = {
 export type SyndicateCompositeEntities<T> = Array<SyndicateCompositeEntity<T>>;
 export type SyndicateConfigEntities = Array<SyndicateConfigEntity>;
 export type SyndicateDataEntities<T> = Array<T>;
+
+export type UnparsedCompositeEntity = {
+  config: string;
+  data: string;
+};
+export type UnparsedCompositeEntities = Array<UnparsedCompositeEntity>;

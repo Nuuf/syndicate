@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var getComposite_1 = require("./getComposite");
-function getChildrenCompositeEntities(root, entity, limit, offset) {
+var _1 = require(".");
+function getChildrenCompositeEntities(root, entity, noParse, limit, offset) {
     var numChildren = entity.childKeys.length;
     var i = offset ? offset : 0;
     var l = limit ? i + limit : numChildren;
@@ -10,8 +10,15 @@ function getChildrenCompositeEntities(root, entity, limit, offset) {
         i = 0;
     if (l > numChildren)
         l = numChildren;
-    for (; i < l; ++i) {
-        children.push(getComposite_1.default(root, entity.childKeys[i]));
+    if (noParse) {
+        for (; i < l; ++i) {
+            children.push(_1.getComposite(root, entity.childKeys[i], true));
+        }
+    }
+    else {
+        for (; i < l; ++i) {
+            children.push(_1.getComposite(root, entity.childKeys[i], false));
+        }
     }
     return children;
 }

@@ -1,9 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var getChildrenConfigEntities_1 = require("./getChildrenConfigEntities");
-var getConfig_1 = require("./getConfig");
+var _1 = require(".");
 var constants_1 = require("../../constants");
-function getRootConfigEntities(root, limit, offset) {
-    return getChildrenConfigEntities_1.default(root, getConfig_1.default(root, constants_1.ROOT_ENTITY_KEY), limit, offset);
+function getRootConfigEntities(root, noParse, limit, offset) {
+    if (noParse)
+        return _1.getChildrenConfigEntities(root, _1.getConfig(root, constants_1.ROOT_ENTITY_KEY, false), true, limit, offset);
+    return _1.getChildrenConfigEntities(root, _1.getConfig(root, constants_1.ROOT_ENTITY_KEY, false), false, limit, offset);
 }
 exports.default = getRootConfigEntities;

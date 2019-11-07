@@ -1,8 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var constants_1 = require("../../constants");
-var getConfig_1 = require("../getters/getConfig");
-var fickleDelete_1 = require("../../utility/fickleDelete");
+var getters_1 = require("../getters");
+var utility_1 = require("../../utility");
+/**
+ *
+ * @param root
+ * @param entity
+ * @param parentTakenCareOf
+ */
 function remove(root, entity, parentTakenCareOf) {
     if (entity.parentKey === null)
         throw new Error('SYNDICATE: ENTITY DOES NOT EXIST WITHIN ROOT');
@@ -12,12 +18,13 @@ function remove(root, entity, parentTakenCareOf) {
     delete root.dataEntities[entity.key];
     var i = 0;
     for (; i < entity.childKeys.length; ++i) {
-        remove(root, getConfig_1.default(root, entity.childKeys[i]), true);
+        remove(root, getters_1.getConfig(root, entity.childKeys[i]), true);
     }
     if (!parentTakenCareOf) {
-        var parent = getConfig_1.default(root, entity.parentKey);
-        fickleDelete_1.fickleDelete(parent.childKeys, parent.childKeys.indexOf(entity.key));
+        var parent = getters_1.getConfig(root, entity.parentKey);
+        utility_1.fickleDelete(parent.childKeys, parent.childKeys.indexOf(entity.key));
         root.configEntities[parent.key] = JSON.stringify(parent);
     }
+    entity.parentKey = null;
 }
 exports.default = remove;

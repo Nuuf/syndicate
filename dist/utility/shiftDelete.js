@@ -11,4 +11,4 @@ function shiftDelete(array, index) {
     array.shift();
     return returnee;
 }
-exports.shiftDelete = shiftDelete;
+exports.default = shiftDelete;

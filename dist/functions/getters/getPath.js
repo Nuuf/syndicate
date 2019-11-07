@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var traversePath_1 = require("../utility/traversePath");
+var utility_1 = require("../utility");
 function getPath(root, entity) {
-    return traversePath_1.default(root, entity, []);
+    return utility_1.traversePath(root, entity, []);
 }
 exports.default = getPath;

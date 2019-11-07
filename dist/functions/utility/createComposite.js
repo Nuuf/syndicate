@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var createConfig_1 = require("./createConfig");
+var _1 = require(".");
 function createComposite(dataEntity, customKey) {
     return {
-        config: createConfig_1.default(customKey),
+        config: _1.createConfig(customKey),
         data: dataEntity,
     };
 }

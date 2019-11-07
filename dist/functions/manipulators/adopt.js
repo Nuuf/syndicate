@@ -1,17 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var constants_1 = require("../../constants");
-var getConfig_1 = require("../getters/getConfig");
-var fickleDelete_1 = require("../../utility/fickleDelete");
+var getters_1 = require("../getters");
+var utility_1 = require("../../utility");
+/**
+ *
+ * @param root
+ * @param entity
+ * @param adopter
+ * @param arrange
+ */
 function adopt(root, entity, adopter, arrange) {
     if (entity.parentKey === null || adopter.parentKey === null)
         throw new Error('SYNDICATE: ENTITY DOES NOT EXIST WITHIN ROOT');
     if (entity.key === constants_1.ROOT_ENTITY_KEY)
         throw new Error('SYNDICATE: ROOT CANNOT BE ADOPTED');
-    if (entity.parentKey === adopter.parentKey)
+    if (entity.parentKey === adopter.key)
         throw new Error('SYNDICATE: A PARENT CANNOT ADOPT ITS OWN CHILD');
-    var parent = getConfig_1.default(root, entity.parentKey);
-    fickleDelete_1.fickleDelete(parent.childKeys, parent.childKeys.indexOf(entity.key));
+    var parent = getters_1.getConfig(root, entity.parentKey);
+    utility_1.fickleDelete(parent.childKeys, parent.childKeys.indexOf(entity.key));
     switch (arrange) {
         case constants_1.Arrange.START:
             adopter.childKeys.unshift(entity.key);

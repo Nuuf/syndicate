@@ -1,8 +1,15 @@
 import { SyndicateRootEntity, SyndicateCompositeEntity, SyndicateConfigEntity } from '../../types';
 import { Arrange, ROOT_ENTITY_KEY } from '../../constants';
-import getConfig from '../getters/getConfig';
-import adopt from './adopt';
+import { getConfig } from '../getters';
+import { adopt } from '.';
 
+/**
+ *
+ * @param root
+ * @param entity
+ * @param parent
+ * @param arrange
+ */
 export default function add<T>(
   root: SyndicateRootEntity,
   entity: SyndicateCompositeEntity<T>,
@@ -23,7 +30,16 @@ export default function add<T>(
     parent = getConfig(root, ROOT_ENTITY_KEY);
   }
 
+  switch (arrange) {
+    case Arrange.START:
+      parent.childKeys.unshift(key);
+      break;
+    default:
+      parent.childKeys.push(key);
+      break;
+  }
   config.parentKey = parent.key;
 
+  root.configEntities[parent.key] = JSON.stringify(parent);
   root.configEntities[key] = JSON.stringify(config);
 }

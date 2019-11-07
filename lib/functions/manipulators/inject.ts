@@ -1,8 +1,15 @@
 import { SyndicateRootEntity, SyndicateConfigEntity } from '../../types';
 import { Arrange } from '../../constants';
-import getConfig from '../getters/getConfig';
-import { fickleDelete } from '../../utility/fickleDelete';
+import { getConfig } from '../getters';
+import { fickleDelete } from '../../utility';
 
+/**
+ *
+ * @param root
+ * @param entityA
+ * @param entityB
+ * @param arrange
+ */
 export default function inject(
   root: SyndicateRootEntity,
   entityA: SyndicateConfigEntity,

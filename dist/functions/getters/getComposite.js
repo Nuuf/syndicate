@@ -1,11 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var getConfig_1 = require("./getConfig");
-var getData_1 = require("./getData");
-function getComposite(root, key) {
+var _1 = require(".");
+function getComposite(root, key, noParse) {
+    if (noParse) {
+        return {
+            config: _1.getConfig(root, key, true),
+            data: _1.getData(root, key, true),
+        };
+    }
     return {
-        config: getConfig_1.default(root, key),
-        data: getData_1.default(root, key),
+        config: _1.getConfig(root, key),
+        data: _1.getData(root, key, false),
     };
 }
 exports.default = getComposite;

@@ -1,5 +1,5 @@
 import { SyndicateRootEntity, SyndicateRootList } from '../../types';
-import createComposite from './createComposite';
+import { createComposite } from '.';
 import { ROOT_ENTITY_KEY } from '../../constants';
 
 export default function createRoot(): SyndicateRootEntity {

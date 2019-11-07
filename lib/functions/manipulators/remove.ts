@@ -1,8 +1,14 @@
 import { SyndicateRootEntity, SyndicateConfigEntity } from '../../types';
 import { ROOT_ENTITY_KEY } from '../../constants';
-import getConfig from '../getters/getConfig';
-import { fickleDelete } from '../../utility/fickleDelete';
+import { getConfig } from '../getters';
+import { fickleDelete } from '../../utility';
 
+/**
+ *
+ * @param root
+ * @param entity
+ * @param parentTakenCareOf
+ */
 export default function remove(
   root: SyndicateRootEntity,
   entity: SyndicateConfigEntity,
@@ -21,4 +27,5 @@ export default function remove(
     fickleDelete(parent.childKeys, parent.childKeys.indexOf(entity.key));
     root.configEntities[parent.key] = JSON.stringify(parent);
   }
+  entity.parentKey = null;
 }

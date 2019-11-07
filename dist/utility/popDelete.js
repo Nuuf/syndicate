@@ -12,4 +12,4 @@ function popDelete(array, index) {
     array.pop();
     return returnee;
 }
-exports.popDelete = popDelete;
+exports.default = popDelete;
