@@ -1,5 +1,6 @@
 __mocks__
 tests
+pg
 .vscode
 node_modules
 .eslintrc.js

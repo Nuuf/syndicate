@@ -1,1 +1,7 @@
 node_modules
+/constants
+/functions
+/types
+/utility
+/index.d.ts
+/index.js

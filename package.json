@@ -1,9 +1,9 @@
 {
   "name": "@nuuf/syndicate",
   "description": "A connected list of strings.",
-  "version": "3.0.0",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "version": "3.1.0",
+  "main": "index.js",
+  "types": "index.d.ts",
   "author": "nuuf",
   "license": "MIT",
   "private": false,
@@ -11,7 +11,7 @@
     "build": "yarn clean && tsc",
     "test": "jest",
     "lint": "eslint 'lib/**/*.ts'",
-    "clean": "rimraf dist"
+    "clean": "rimraf constants functions types utility index.d.ts index.js"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.3.3",

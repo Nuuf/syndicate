@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { SyndicateRootEntity, SyndicateCompositeEntity, UnparsedCompositeEntity } from '../../types';
+import { SyndicateRootEntity, SyndicateCompositeEntity, UnparsedSyndicateCompositeEntity } from '../../types';
 import { getConfig, getData } from '.';
 
 export default function getComposite<T>(
@@ -7,7 +7,11 @@ export default function getComposite<T>(
   key: string,
   noParse?: false
 ): SyndicateCompositeEntity<T>;
-export default function getComposite(root: SyndicateRootEntity, key: string, noParse?: true): UnparsedCompositeEntity;
+export default function getComposite(
+  root: SyndicateRootEntity,
+  key: string,
+  noParse?: true
+): UnparsedSyndicateCompositeEntity;
 export default function getComposite(root: SyndicateRootEntity, key: string, noParse?: boolean): any {
   if (noParse) {
     return {

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { SyndicateRootEntity, SyndicateConfigEntities } from '../../types';
+import { SyndicateRootEntity, SyndicateConfigEntities, UnparsedSyndicateConfigEntities } from '../../types';
 import { getChildrenConfigEntities, getConfig } from '.';
 import { ROOT_ENTITY_KEY } from '../../constants';
 
@@ -14,7 +14,7 @@ export default function getRootConfigEntities(
   noParse?: true,
   limit?: number,
   offset?: number
-): Array<string>;
+): UnparsedSyndicateConfigEntities;
 export default function getRootConfigEntities(
   root: SyndicateRootEntity,
   noParse?: boolean,

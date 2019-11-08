@@ -1,13 +1,13 @@
-const { createRoot, createComposite, renderStructure } = require('../dist/functions/utility');
-const { add, adopt, clone, eject, inject, remove, swap, update } = require('../dist/functions/manipulators');
+const { createRoot, createComposite, renderStructure } = require('../functions/utility');
+const { add, adopt, clone, eject, inject, remove, swap, update } = require('../functions/manipulators');
 const {
   getConfig,
   getComposite,
   getRootCompositeEntities,
   getRootConfigEntities,
   getRootDataEntities,
-} = require('../dist/functions/getters');
-const { Arrange } = require('../dist/constants');
+} = require('../functions/getters');
+const { Arrange } = require('../constants');
 const root = createRoot();
 const parent1 = createComposite({ name: 'parent 1' });
 const parent2 = createComposite({ name: 'parent 2' });

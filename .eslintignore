@@ -1,2 +1,7 @@
 node_modules
-dist
+constants
+functions
+types
+utility
+index.d.ts
+index.js
