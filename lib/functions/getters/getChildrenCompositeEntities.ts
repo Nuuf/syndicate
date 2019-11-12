@@ -1,5 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { SyndicateRootEntity, SyndicateConfigEntity, SyndicateCompositeEntities, UnparsedSyndicateCompositeEntities } from '../../types';
+import {
+  SyndicateRootEntity,
+  SyndicateConfigEntity,
+  SyndicateCompositeEntities,
+  UnparsedSyndicateCompositeEntities,
+} from '../../types';
 import { getComposite } from '.';
 
 export default function getChildrenCompositeEntities<T>(

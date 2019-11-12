@@ -13,6 +13,7 @@ export type SyndicateConfigEntity = {
   key: string;
   childKeys: Array<string>;
   parentKey: string | null;
+  type?: string;
 };
 
 export type SyndicateCompositeEntity<T> = {

@@ -42,12 +42,14 @@ adopt(root, getConfig(root, shouldBeRemoved.config.key), getConfig(root, parent3
 inject(root, getConfig(root, child1SiblingBefore.config.key), getConfig(root, child1.config.key));
 inject(root, getConfig(root, child1SiblingAfter.config.key), getConfig(root, child1.config.key), Arrange.AFTER);
 
-const dupe = clone(root, getComposite(root, twoOfMe.config.key));
-dupe.data.name += ' > i am duped';
+const dupe = clone(root, getComposite(root, twoOfMe.config.key), Arrange.AFTER);
+dupe.data.name += ' > i am duped and after';
 update(root, dupe);
 
 eject(root, getConfig(root, shouldBeRemoved.config.key));
 remove(root, getConfig(root, shouldBeRemoved.config.key));
+
+inject(root, getConfig(root, parent2.config.key), getConfig(root, parent3.config.key), Arrange.AFTER);
 
 console.log(
   renderStructure(root, (entity, level) => {
@@ -55,6 +57,6 @@ console.log(
   })
 );
 
-console.log(getRootCompositeEntities(root));
+/* console.log(getRootCompositeEntities(root));
 console.log(getRootConfigEntities(root));
-console.log(getRootDataEntities(root));
+console.log(getRootDataEntities(root)); */

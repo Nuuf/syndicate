@@ -2,8 +2,7 @@ import { SyndicateRootEntity, SyndicateCompositeEntity } from '../../types';
 import { Arrange } from '../../constants';
 import { createComposite } from '../utility';
 import { getConfig, getChildrenCompositeEntities } from '../getters';
-import { add } from '.';
-import adopt from './adopt';
+import { add, adopt, inject } from '.';
 
 /**
  *
@@ -15,21 +14,23 @@ import adopt from './adopt';
 export default function clone<T>(
   root: SyndicateRootEntity,
   entity: SyndicateCompositeEntity<T>,
-  arrange?: Arrange.START | Arrange.END,
+  arrange?: Arrange,
   descendants?: boolean
 ): SyndicateCompositeEntity<T> {
   const { parentKey } = entity.config;
   if (parentKey === null) throw new Error('SYNDICATE: ENTITY DOES NOT EXIST WITHIN ROOT');
-  const dupe = createComposite(JSON.parse(JSON.stringify(entity.data)));
+  const dupe = createComposite(JSON.parse(JSON.stringify(entity.data)), undefined, entity.config.type);
   const parent = getConfig(root, parentKey);
-  add(root, dupe, parent, arrange);
+  add(root, dupe, parent);
   if (descendants) {
     const children = getChildrenCompositeEntities(root, entity.config);
     let i = 0;
     for (; i < children.length; ++i) {
-      const childDupe = clone(root, children[i], arrange, true);
+      const childDupe = clone(root, children[i], undefined, true);
       adopt(root, childDupe.config, dupe.config);
     }
+  } else {
+    inject(root, dupe.config, entity.config, arrange);
   }
   return dupe;
 }

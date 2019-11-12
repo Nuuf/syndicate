@@ -3,7 +3,7 @@ import { getRootCompositeEntities, getChildrenCompositeEntities } from '../gette
 
 export default function renderStructure<T>(
   root: SyndicateRootEntity,
-  handle: <T>(entity: SyndicateCompositeEntity<T>, level: number) => string
+  handle: <C>(entity: SyndicateCompositeEntity<C>, level: number) => string
 ): string {
   function printEntity<T>(entity: SyndicateCompositeEntity<T>, str: string, level: number): string {
     str += `${handle(entity, level)}\n`;
