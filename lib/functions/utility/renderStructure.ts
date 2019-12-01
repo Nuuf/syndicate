@@ -3,9 +3,9 @@ import { getRootCompositeEntities, getChildrenCompositeEntities } from '../gette
 
 export default function renderStructure<T>(
   root: SyndicateRootEntity,
-  handle: <C>(entity: SyndicateCompositeEntity<C>, level: number) => string
+  handle: (entity: SyndicateCompositeEntity<T>, level: number) => string
 ): string {
-  function printEntity<T>(entity: SyndicateCompositeEntity<T>, str: string, level: number): string {
+  function printEntity(entity: SyndicateCompositeEntity<T>, str: string, level: number): string {
     str += `${handle(entity, level)}\n`;
     let i = 0;
     const children = getChildrenCompositeEntities<T>(root, entity.config);
@@ -13,7 +13,7 @@ export default function renderStructure<T>(
     const tabs = '\t'.repeat(level);
     for (; i < children.length; ++i) {
       str += tabs;
-      str = printEntity<T>(children[i], str, level);
+      str = printEntity(children[i], str, level);
     }
     return str;
   }
@@ -21,7 +21,7 @@ export default function renderStructure<T>(
     i = 0;
   const rootEntities = getRootCompositeEntities<T>(root);
   for (; i < rootEntities.length; ++i) {
-    str = printEntity<T>(rootEntities[i], str, 0);
+    str = printEntity(rootEntities[i], str, 0);
   }
   return str;
 }

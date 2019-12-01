@@ -22,6 +22,7 @@ export default function clone<T>(
   const dupe = createComposite(JSON.parse(JSON.stringify(entity.data)), undefined, entity.config.type);
   const parent = getConfig(root, parentKey);
   add(root, dupe, parent);
+  inject(root, dupe.config, entity.config, arrange);
   if (descendants) {
     const children = getChildrenCompositeEntities(root, entity.config);
     let i = 0;
@@ -29,8 +30,6 @@ export default function clone<T>(
       const childDupe = clone(root, children[i], undefined, true);
       adopt(root, childDupe.config, dupe.config);
     }
-  } else {
-    inject(root, dupe.config, entity.config, arrange);
   }
   return dupe;
 }
