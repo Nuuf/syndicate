@@ -1,13 +1,13 @@
 import { SyndicateCompositeEntity } from '../../types';
 import { createConfig } from '.';
 
-export default function createComposite<T>(
+export default function createComposite<T, C>(
   dataEntity: T,
-  customKey?: string,
-  type?: string
-): SyndicateCompositeEntity<T> {
+  configData?: C,
+  customKey?: string
+): SyndicateCompositeEntity<T, C> {
   return {
-    config: createConfig(customKey, type),
+    config: createConfig(customKey, configData),
     data: dataEntity,
   };
 }

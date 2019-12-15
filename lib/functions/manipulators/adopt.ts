@@ -10,10 +10,10 @@ import { fickleDelete } from '../../utility';
  * @param adopter
  * @param arrange
  */
-export default function adopt(
+export default function adopt<T>(
   root: SyndicateRootEntity,
-  entity: SyndicateConfigEntity,
-  adopter: SyndicateConfigEntity,
+  entity: SyndicateConfigEntity<T>,
+  adopter: SyndicateConfigEntity<T>,
   arrange?: Arrange.START | Arrange.END
 ): void {
   if (entity.parentKey === null || adopter.parentKey === null)

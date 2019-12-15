@@ -7,10 +7,10 @@ import { getConfig } from '../getters';
  * @param entityA
  * @param entityB
  */
-export default function swap(
+export default function swap<T>(
   root: SyndicateRootEntity,
-  entityA: SyndicateConfigEntity,
-  entityB: SyndicateConfigEntity
+  entityA: SyndicateConfigEntity<T>,
+  entityB: SyndicateConfigEntity<T>
 ): void {
   if (entityA.parentKey === null || entityB.parentKey === null)
     throw new Error('SYNDICATE: ENTITY DOES NOT EXIST WITHIN ROOT');

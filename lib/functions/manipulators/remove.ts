@@ -9,9 +9,9 @@ import { fickleDelete } from '../../utility';
  * @param entity
  * @param parentTakenCareOf
  */
-export default function remove(
+export default function remove<T>(
   root: SyndicateRootEntity,
-  entity: SyndicateConfigEntity,
+  entity: SyndicateConfigEntity<T>,
   parentTakenCareOf?: boolean
 ): void {
   if (entity.parentKey === null) throw new Error('SYNDICATE: ENTITY DOES NOT EXIST WITHIN ROOT');

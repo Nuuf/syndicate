@@ -2,11 +2,11 @@ import { SyndicateRootEntity, SyndicateConfigEntity, SyndicateConfigEntities } f
 import { ROOT_ENTITY_KEY } from '../../constants';
 import { getConfig } from '../getters';
 
-export default function traversePath(
+export default function traversePath<T>(
   root: SyndicateRootEntity,
-  entity: SyndicateConfigEntity,
-  path: SyndicateConfigEntities
-): SyndicateConfigEntities {
+  entity: SyndicateConfigEntity<T>,
+  path: SyndicateConfigEntities<T>
+): SyndicateConfigEntities<T> {
   if (entity.parentKey === null) return path;
   if (entity.key === ROOT_ENTITY_KEY) return path;
   path.push(entity);

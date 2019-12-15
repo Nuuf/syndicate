@@ -9,20 +9,20 @@ export type SyndicateRootEntity = {
   dataEntities: SyndicateRootList;
 };
 
-export type SyndicateConfigEntity = {
+export type SyndicateConfigEntity<T> = {
   key: string;
   childKeys: Array<string>;
   parentKey: string | null;
-  type?: string;
+  configData?: T;
 };
 
-export type SyndicateCompositeEntity<T> = {
-  config: SyndicateConfigEntity;
+export type SyndicateCompositeEntity<T, C> = {
+  config: SyndicateConfigEntity<C>;
   data: T;
 };
 
-export type SyndicateCompositeEntities<T> = Array<SyndicateCompositeEntity<T>>;
-export type SyndicateConfigEntities = Array<SyndicateConfigEntity>;
+export type SyndicateCompositeEntities<T, C> = Array<SyndicateCompositeEntity<T, C>>;
+export type SyndicateConfigEntities<T> = Array<SyndicateConfigEntity<T>>;
 export type SyndicateDataEntities<T> = Array<T>;
 
 export type UnparsedSyndicateCompositeEntity = {

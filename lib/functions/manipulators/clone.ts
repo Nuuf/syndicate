@@ -11,15 +11,15 @@ import { add, adopt, inject } from '.';
  * @param arrange
  * @param descendants
  */
-export default function clone<T>(
+export default function clone<T, C>(
   root: SyndicateRootEntity,
-  entity: SyndicateCompositeEntity<T>,
+  entity: SyndicateCompositeEntity<T, C>,
   arrange?: Arrange,
   descendants?: boolean
-): SyndicateCompositeEntity<T> {
+): SyndicateCompositeEntity<T, C> {
   const { parentKey } = entity.config;
   if (parentKey === null) throw new Error('SYNDICATE: ENTITY DOES NOT EXIST WITHIN ROOT');
-  const dupe = createComposite(JSON.parse(JSON.stringify(entity.data)), undefined, entity.config.type);
+  const dupe = createComposite(JSON.parse(JSON.stringify(entity.data)), entity.config.configData);
   const parent = getConfig(root, parentKey);
   add(root, dupe, parent);
   inject(root, dupe.config, entity.config, arrange);

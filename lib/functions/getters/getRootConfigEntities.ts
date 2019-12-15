@@ -3,12 +3,12 @@ import { SyndicateRootEntity, SyndicateConfigEntities, UnparsedSyndicateConfigEn
 import { getChildrenConfigEntities, getConfig } from '.';
 import { ROOT_ENTITY_KEY } from '../../constants';
 
-export default function getRootConfigEntities(
+export default function getRootConfigEntities<T>(
   root: SyndicateRootEntity,
   noParse?: false,
   limit?: number,
   offset?: number
-): SyndicateConfigEntities;
+): SyndicateConfigEntities<T>;
 export default function getRootConfigEntities(
   root: SyndicateRootEntity,
   noParse?: true,

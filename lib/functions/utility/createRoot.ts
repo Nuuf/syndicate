@@ -3,7 +3,7 @@ import { createComposite } from '.';
 import { ROOT_ENTITY_KEY } from '../../constants';
 
 export default function createRoot(): SyndicateRootEntity {
-  const rootEntity = createComposite({ name: 'root' }, ROOT_ENTITY_KEY);
+  const rootEntity = createComposite({ name: 'root' }, undefined, ROOT_ENTITY_KEY);
   rootEntity.config.parentKey = ROOT_ENTITY_KEY;
   const configEntities: SyndicateRootList = {};
   const dataEntities: SyndicateRootList = {};

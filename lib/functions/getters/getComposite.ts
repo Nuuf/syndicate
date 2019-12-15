@@ -2,11 +2,11 @@
 import { SyndicateRootEntity, SyndicateCompositeEntity, UnparsedSyndicateCompositeEntity } from '../../types';
 import { getConfig, getData } from '.';
 
-export default function getComposite<T>(
+export default function getComposite<T, C>(
   root: SyndicateRootEntity,
   key: string,
   noParse?: false
-): SyndicateCompositeEntity<T>;
+): SyndicateCompositeEntity<T, C>;
 export default function getComposite(
   root: SyndicateRootEntity,
   key: string,

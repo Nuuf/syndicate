@@ -7,23 +7,23 @@ import {
 } from '../../types';
 import { getData } from '.';
 
-export default function getChildrenDataEntities<T>(
+export default function getChildrenDataEntities<T, C>(
   root: SyndicateRootEntity,
-  entity: SyndicateConfigEntity,
+  entity: SyndicateConfigEntity<C>,
   noParse?: false,
   limit?: number,
   offset?: number
 ): SyndicateDataEntities<T>;
-export default function getChildrenDataEntities(
+export default function getChildrenDataEntities<T>(
   root: SyndicateRootEntity,
-  entity: SyndicateConfigEntity,
+  entity: SyndicateConfigEntity<T>,
   noParse?: true,
   limit?: number,
   offset?: number
 ): UnparsedSyndicateDataEntities;
-export default function getChildrenDataEntities<T>(
+export default function getChildrenDataEntities<T, C>(
   root: SyndicateRootEntity,
-  entity: SyndicateConfigEntity,
+  entity: SyndicateConfigEntity<C>,
   noParse?: boolean,
   limit?: number,
   offset?: number

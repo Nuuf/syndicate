@@ -9,9 +9,9 @@ import { getConfig } from '../getters';
  * @param entity
  * @param arrange
  */
-export default function eject(
+export default function eject<T>(
   root: SyndicateRootEntity,
-  entity: SyndicateConfigEntity,
+  entity: SyndicateConfigEntity<T>,
   arrange?: Arrange.START | Arrange.END
 ): void {
   if (entity.parentKey === null) throw new Error('SYNDICATE: ENTITY DOES NOT EXIST WITHIN ROOT');

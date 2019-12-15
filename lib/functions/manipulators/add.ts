@@ -10,10 +10,10 @@ import { adopt } from '.';
  * @param parent
  * @param arrange
  */
-export default function add<T>(
+export default function add<T, C>(
   root: SyndicateRootEntity,
-  entity: SyndicateCompositeEntity<T>,
-  parent?: SyndicateConfigEntity,
+  entity: SyndicateCompositeEntity<T, C>,
+  parent?: SyndicateConfigEntity<C>,
   arrange?: Arrange.START | Arrange.END
 ): void {
   const { config, data } = entity;

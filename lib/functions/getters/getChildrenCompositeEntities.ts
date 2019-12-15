@@ -7,23 +7,23 @@ import {
 } from '../../types';
 import { getComposite } from '.';
 
-export default function getChildrenCompositeEntities<T>(
+export default function getChildrenCompositeEntities<T, C>(
   root: SyndicateRootEntity,
-  entity: SyndicateConfigEntity,
+  entity: SyndicateConfigEntity<C>,
   noParse?: false,
   limit?: number,
   offset?: number
-): SyndicateCompositeEntities<T>;
-export default function getChildrenCompositeEntities(
+): SyndicateCompositeEntities<T, C>;
+export default function getChildrenCompositeEntities<T>(
   root: SyndicateRootEntity,
-  entity: SyndicateConfigEntity,
+  entity: SyndicateConfigEntity<T>,
   noParse?: true,
   limit?: number,
   offset?: number
 ): UnparsedSyndicateCompositeEntities;
-export default function getChildrenCompositeEntities<T>(
+export default function getChildrenCompositeEntities<T, C>(
   root: SyndicateRootEntity,
-  entity: SyndicateConfigEntity,
+  entity: SyndicateConfigEntity<C>,
   noParse?: boolean,
   limit?: number,
   offset?: number
@@ -40,7 +40,7 @@ export default function getChildrenCompositeEntities<T>(
     }
   } else {
     for (; i < l; ++i) {
-      children.push(getComposite<T>(root, entity.childKeys[i], false));
+      children.push(getComposite<T, C>(root, entity.childKeys[i], false));
     }
   }
 

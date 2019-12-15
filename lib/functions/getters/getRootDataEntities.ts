@@ -15,12 +15,12 @@ export default function getRootDataEntities(
   limit?: number,
   offset?: number
 ): UnparsedSyndicateDataEntities;
-export default function getRootDataEntities<T>(
+export default function getRootDataEntities<T, C>(
   root: SyndicateRootEntity,
   noParse?: boolean,
   limit?: number,
   offset?: number
 ): any {
   if (noParse) return getChildrenDataEntities(root, getConfig(root, ROOT_ENTITY_KEY, false), true, limit, offset);
-  return getChildrenDataEntities<T>(root, getConfig(root, ROOT_ENTITY_KEY, false), false, limit, offset);
+  return getChildrenDataEntities<T, C>(root, getConfig(root, ROOT_ENTITY_KEY, false), false, limit, offset);
 }

@@ -10,10 +10,10 @@ import { fickleDelete } from '../../utility';
  * @param entityB
  * @param arrange
  */
-export default function inject(
+export default function inject<T>(
   root: SyndicateRootEntity,
-  entityA: SyndicateConfigEntity,
-  entityB: SyndicateConfigEntity,
+  entityA: SyndicateConfigEntity<T>,
+  entityB: SyndicateConfigEntity<T>,
   arrange?: Arrange
 ): void {
   if (entityA.parentKey === null || entityB.parentKey === null)

@@ -1,5 +1,5 @@
 const { createRoot, createComposite, renderStructure } = require('../functions/utility');
-const { add, adopt, clone, eject, inject, remove, swap, update } = require('../functions/manipulators');
+const { add, adopt, clone, eject, inject, remove, swap, updateData } = require('../functions/manipulators');
 const {
   getConfig,
   getComposite,
@@ -8,6 +8,9 @@ const {
   getRootDataEntities,
 } = require('../functions/getters');
 const { Arrange } = require('../constants');
+
+console.log('start');
+
 {
   const root = createRoot();
 
@@ -46,7 +49,7 @@ const { Arrange } = require('../constants');
 
   const dupe = clone(root, getComposite(root, twoOfMe.config.key), Arrange.AFTER);
   dupe.data.name += ' > i am duped and after';
-  update(root, dupe);
+  updateData(root, dupe);
 
   eject(root, getConfig(root, shouldBeRemoved.config.key));
   remove(root, getConfig(root, shouldBeRemoved.config.key));
@@ -82,15 +85,18 @@ const { Arrange } = require('../constants');
   add(root, child5, parent1.config);
   const dupe = clone(root, parent2, Arrange.BEFORE, true);
   dupe.data.name = 'new parent2';
-  update(root, dupe);
+  updateData(root, dupe);
 
   console.log(
     renderStructure(root, (entity, level) => {
       return `${entity.data.name}, level: ${level}`;
     })
   );
+
+  // console.log(root);
+  // console.log(getRootCompositeEntities(root));
+  // console.log(getRootConfigEntities(root));
+  // console.log(getRootDataEntities(root));
 }
 
-/* console.log(getRootCompositeEntities(root));
-console.log(getRootConfigEntities(root));
-console.log(getRootDataEntities(root)); */
+console.log('end');
